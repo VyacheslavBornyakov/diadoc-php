@@ -38,6 +38,10 @@ class Document extends \Google\Protobuf\Internal\Message
      */
     private $DocumentType = 0;
     /**
+     * Generated from protobuf field <code>.Diadoc.Proto.DocumentType TypeNamedId = 63;</code>
+     */
+    private $TypeNamedId = 0;
+    /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId InitialDocumentIds = 7;</code>
      */
     private $InitialDocumentIds;
