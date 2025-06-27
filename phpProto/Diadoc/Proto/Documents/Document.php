@@ -435,6 +435,29 @@ class Document extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Generated from protobuf field <code>.Diadoc.Proto.DocumentType TypeNamedId = 63;</code>
+     * @return int
+     */
+    public function getTypeNamedId()
+    {
+        return $this->TypeNamedId;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.DocumentType TypeNamedId = 63;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTypeNamedId($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\DocumentType::class);
+        $this->TypeNamedId = $var;
+
+        return $this;
+    }
+
+    
+    /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId InitialDocumentIds = 7;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
