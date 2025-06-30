@@ -5,6 +5,7 @@ import "Docflow/RoamingNotification.proto";
 import "Docflow/ResolutionDocflowV3.proto";
 import "OuterDocflows/OuterDocflowStatus.proto";
 import "DocflowStatusV3.proto";
+import "Documents/ReceiptStatus.proto";
 
 package Diadoc.Api.Proto.Docflow;
 

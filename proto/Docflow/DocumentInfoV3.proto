@@ -2,6 +2,7 @@ import "FullVersion.proto";
 import "DocumentId.proto";
 import "Timestamp.proto";
 import "Documents/Document.proto";
+import "Documents/ReceiptStatus.proto";
 import "LockMode.proto";
 import "ForwardDocumentEvent.proto";
 import "DocumentDirection.proto";
