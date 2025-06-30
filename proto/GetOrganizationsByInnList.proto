@@ -1,16 +1,24 @@
-syntax="proto3";
 import "Organization.proto";
 import "Counteragent.proto";
+import "DocumentId.proto";
 
-package Diadoc.Proto;
+
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "GetOrganizationsByInnListProtos";
 
 message GetOrganizationsByInnListRequest {
 	repeated string InnList = 1;
 }
 
 message OrganizationWithCounteragentStatus {
-	 Organization Organization = 1;
-	 CounteragentStatus CounteragentStatus = 2;
+	required Organization Organization = 1;
+	optional CounteragentStatus CounteragentStatus = 2 [default = UnknownCounteragentStatus];
+	optional sfixed64 LastEventTimestampTicks = 3;
+	optional string MessageFromCounteragent = 4;
+	optional string MessageToCounteragent = 5;
+	optional DocumentId InvitationDocumentId = 6;
+	optional string CounteragentGroupId = 7;
 }
 
 message GetOrganizationsByInnListResponse {

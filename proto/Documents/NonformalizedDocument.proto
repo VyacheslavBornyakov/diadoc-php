@@ -1,11 +1,12 @@
-syntax="proto3";
 import "Documents/ReceiptStatus.proto";
 
-package Diadoc.Proto.Documents.NonformalizedDocument;
+package Diadoc.Api.Proto.Documents.NonformalizedDocument;
+
+option java_outer_classname = "NonformalizedDocumentProtos";
 
 message NonformalizedDocumentMetadata {
-	 NonformalizedDocumentStatus DocumentStatus = 1;
-	 ReceiptStatus ReceiptStatus = 2;
+	optional NonformalizedDocumentStatus DocumentStatus = 1 [default = UnknownNonformalizedDocumentStatus];
+	optional ReceiptStatus ReceiptStatus = 2 [default = UnknownReceiptStatus];
 }
 
 enum NonformalizedDocumentStatus {

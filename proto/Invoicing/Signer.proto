@@ -1,17 +1,18 @@
-syntax="proto3";
-package Diadoc.Proto.Invoicing;
+package Diadoc.Api.Proto.Invoicing;
+
+option java_outer_classname = "SignerProtos";
 
 message Signer {
-	 bytes SignerCertificate = 1;
-	 SignerDetails SignerDetails = 2;
-	 string SignerCertificateThumbprint = 3;
+	optional bytes SignerCertificate = 1;
+	optional SignerDetails SignerDetails = 2;
+	optional string SignerCertificateThumbprint = 3;
 }
 
 message SignerDetails {
-	 string Surname = 1;
-	 string FirstName = 2;
-	 string Patronymic = 3;
-	 string JobTitle = 4;
-	 string Inn = 5;
-	 string SoleProprietorRegistrationCertificate = 6;
+	required string Surname = 1;
+	required string FirstName = 2;
+	optional string Patronymic = 3;
+	optional string JobTitle = 4;
+	optional string Inn = 5;
+	optional string SoleProprietorRegistrationCertificate = 6;
 }

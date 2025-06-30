@@ -1,11 +1,12 @@
-syntax="proto3";
 import "DocumentId.proto";
 
-package Diadoc.Proto.Documents;
+package Diadoc.Api.Proto.Documents;
+
+option java_outer_classname = "DocumentsMoveOperationProtos";
 
 message DocumentsMoveOperation
 {
-	 string BoxId = 1;
-	 string ToDepartmentId = 2;
+	required string BoxId = 1;
+	optional string ToDepartmentId = 2;
 	repeated DocumentId DocumentIds = 3;
 }

@@ -1,22 +1,23 @@
-syntax="proto3";
 import "Address.proto";
 
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "OrganizationPropertiesToUpdateProtos";
 
 message StringValue {
-	 string Value = 1;
+	optional string Value = 1;
 }
 
 message OrganizationPropertiesToUpdate {
-	 string OrgId = 1;
-	 StringValue Ogrn = 2;
-	 StringValue IfnsCode = 3;
-	 Address Address = 4;
-	 HeadOrganizationPropertiesToUpdate HeadOrganizationProperties = 5;
+	required string OrgId = 1;
+	optional StringValue Ogrn = 2;
+	optional StringValue IfnsCode = 3;
+	optional Address Address = 4;
+	optional HeadOrganizationPropertiesToUpdate HeadOrganizationProperties = 5;
 }
 
 message HeadOrganizationPropertiesToUpdate {
-	 StringValue Kpp = 1;
-	 StringValue FullName = 2;
-	 Address Address = 3;
+	optional StringValue Kpp = 1;
+	optional StringValue FullName = 2;
+	optional Address Address = 3;
 }

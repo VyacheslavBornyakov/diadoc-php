@@ -1,9 +1,10 @@
-syntax="proto3";
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "ResolutionTargetProtos";
 
 message ResolutionTarget {
-	 string Department = 1;
-	 string DepartmentId = 2;
-	 string User = 3;
-	 string UserId = 4;
+	optional string Department = 1;
+	optional string DepartmentId = 2;
+	optional string User = 3;
+	optional string UserId = 4;
 }

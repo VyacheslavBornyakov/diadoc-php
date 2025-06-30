@@ -1,19 +1,20 @@
-syntax="proto3";
 import "Content_v2.proto";
 
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "CloudSignProtos";
 
 message CloudSignRequest {
-	repeated CloudSignFile Files = 1; 
+	repeated CloudSignFile Files = 1;
 }
 
 message CloudSignFile {
-	 Content_v2 Content = 1;
-	 string FileName = 2;
+	optional Content_v2 Content = 1;
+	optional string FileName = 2;
 }
 
 message CloudSignResult {
-	 string Token = 1;
+	optional string Token = 1;
 }
 
 message CloudSignConfirmResult {
@@ -21,6 +22,6 @@ message CloudSignConfirmResult {
 }
 
 message AutosignReceiptsResult {
-     string NextBatchKey = 1;
-     int32 SignedReceiptsCount = 2;
+	required int64 SignedReceiptsCount = 1;
+	required string NextBatchKey = 2;
 }

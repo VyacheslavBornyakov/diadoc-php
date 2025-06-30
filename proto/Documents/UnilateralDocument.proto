@@ -1,20 +1,21 @@
-syntax="proto3";
 import "Documents/ReceiptStatus.proto";
 
-package Diadoc.Proto.Documents.UnilateralDocument;
+package Diadoc.Api.Proto.Documents.UnilateralDocument;
+
+option java_outer_classname = "UnilateralDocumentProtos";
 
 message ProformaInvoiceMetadata {
-	 UnilateralDocumentStatus DocumentStatus = 1;
-	 string Total = 2;
-	 string Vat = 3;
-	 string Grounds = 4;
-	 ReceiptStatus ReceiptStatus = 5;
+	optional UnilateralDocumentStatus DocumentStatus = 1 [default = UnknownUnilateralDocumentStatus];
+	required string Total = 2;
+	optional string Vat = 3;
+	optional string Grounds = 4;
+	optional ReceiptStatus ReceiptStatus = 5 [default = UnknownReceiptStatus];
 }
 
 
 message ServiceDetailsMetadata {
-	 UnilateralDocumentStatus DocumentStatus = 1;
-	 ReceiptStatus ReceiptStatus = 2;
+	required UnilateralDocumentStatus DocumentStatus = 1 [default = UnknownUnilateralDocumentStatus];
+	required ReceiptStatus ReceiptStatus = 2 [default = UnknownReceiptStatus];
 }
 
 enum UnilateralDocumentStatus {

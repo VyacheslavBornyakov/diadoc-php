@@ -1,21 +1,22 @@
-syntax="proto3";
 import "Docflow/Attachment.proto";
 import "Docflow/RecipientSignatureDocflow.proto";
 import "Docflow/RecipientSignatureRejectionDocflow.proto";
 
-package Diadoc.Proto.Docflow;
+package Diadoc.Api.Proto.Docflow;
+
+option java_outer_classname = "RevocationDocflowProtos";
 
 message RevocationDocflow
 {
-	 bool IsFinished = 1;
+	optional bool IsFinished = 1;
 	
-	 SignedAttachment RevocationRequestAttachment = 2;
+	optional SignedAttachment RevocationRequestAttachment = 2;
 
-	 RecipientSignatureDocflow RecipientSignatureDocflow = 3;
-	 RecipientSignatureRejectionDocflow RecipientSignatureRejectionDocflow = 4;
+	optional RecipientSignatureDocflow RecipientSignatureDocflow = 3;
+	optional RecipientSignatureRejectionDocflow RecipientSignatureRejectionDocflow = 4;
 
-	 string InitiatorBoxId = 5;
+	optional string InitiatorBoxId = 5;
 
-	 bool IsRevocationAccepted = 6;
-	 bool IsRevocationRejected = 7;
+	optional bool IsRevocationAccepted = 6;
+	optional bool IsRevocationRejected = 7;
 }

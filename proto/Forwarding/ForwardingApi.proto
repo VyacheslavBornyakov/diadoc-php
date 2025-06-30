@@ -1,4 +1,3 @@
-syntax="proto3";
 // forwarded documents api
 // ForwardDocument(boxId, ForwardDocumentRequest) : void
 // GetForwardedDocuments(boxId, GetForwardedDocumentsRequest) : GetForwardedDocumentsResponse
@@ -6,27 +5,30 @@ syntax="proto3";
 
 import "Timestamp.proto";
 import "DocumentId.proto";
+import "TotalCountType.proto";
 import "TimeBasedFilter.proto";
 import "Forwarding/ForwardedDocument.proto";
 
-package Diadoc.Proto.Forwarding;
+package Diadoc.Api.Proto.Forwarding;
+
+option java_outer_classname = "ForwardingApiProtos";
 
 message ForwardDocumentRequest
 {
-	 string ToBoxId = 1;
-	 DocumentId DocumentId = 2;
+	required string ToBoxId = 1;
+	required DocumentId DocumentId = 2;
 }
 
 message ForwardDocumentResponse
 {
-	 Timestamp ForwardTimestamp = 1;
-	 ForwardedDocumentId ForwardedDocumentId = 2;
+	optional Timestamp ForwardTimestamp = 1;
+	optional ForwardedDocumentId ForwardedDocumentId = 2;
 }
 
 message GetForwardedDocumentsRequest
 {
 	repeated ForwardedDocumentId ForwardedDocumentIds = 1;
-	 bool InjectEntityContent = 2;
+	optional bool InjectEntityContent = 2 [default = false];
 }
 
 message GetForwardedDocumentsResponse
@@ -36,22 +38,23 @@ message GetForwardedDocumentsResponse
 
 message GetForwardedDocumentEventsRequest
 {
-	 TimeBasedFilter Filter = 1;
-	 bytes AfterIndexKey = 2;
-	 bool PopulateForwardedDocuments = 3;
-	 bool InjectEntityContent = 4;
+	required TimeBasedFilter Filter = 1;
+	optional bytes AfterIndexKey = 2;
+	optional bool PopulateForwardedDocuments = 3 [default = false];
+	optional bool InjectEntityContent = 4 [default = false];
 }
 
 message GetForwardedDocumentEventsResponse
 {
-	 int32 TotalCount = 1;
+	optional int32 TotalCount = 1;
 	repeated ForwardedDocumentEvent Events = 2;
+	required TotalCountType TotalCountType = 3;
 }
 
 message ForwardedDocumentEvent
 {
-	 Timestamp Timestamp = 1;
-	 ForwardedDocumentId ForwardedDocumentId = 2;
-	 bytes IndexKey = 3;
-	 ForwardedDocument ForwardedDocument = 4;
+	optional Timestamp Timestamp = 1;
+	optional ForwardedDocumentId ForwardedDocumentId = 2;
+	optional bytes IndexKey = 3;
+	optional ForwardedDocument ForwardedDocument = 4;
 }

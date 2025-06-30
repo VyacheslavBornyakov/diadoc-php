@@ -1,11 +1,12 @@
-syntax="proto3";
 import "Docflow/Attachment.proto";
 
-package Diadoc.Proto.Docflow;
+package Diadoc.Api.Proto.Docflow;
+
+option java_outer_classname = "ReceiptDocflowProtos";
 
 message ReceiptDocflow
 {
-	 bool IsFinished = 1;
+	optional bool IsFinished = 1;
 
-	 SignedAttachment ReceiptAttachment = 2;
+	optional SignedAttachment ReceiptAttachment = 2;
 }

@@ -1,6 +1,7 @@
-syntax="proto3";
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "AsyncMethodResultProtos";
 
 message AsyncMethodResult {
-	 string TaskId = 1;
+	optional string TaskId = 1;
 }

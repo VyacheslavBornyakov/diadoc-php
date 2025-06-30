@@ -1,5 +1,6 @@
-syntax="proto3";
-package Diadoc.Proto.Invoicing;
+package Diadoc.Api.Proto.Invoicing;
+
+option java_outer_classname = "FnsRegistrationMessageInfoProtos";
 
 message FnsRegistrationMessageInfo {
 	repeated bytes Certificates = 1;

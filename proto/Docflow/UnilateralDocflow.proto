@@ -1,16 +1,17 @@
-syntax="proto3";
 import "Docflow/ReceiptDocflow.proto";
 
-package Diadoc.Proto.Docflow;
+package Diadoc.Api.Proto.Docflow;
+
+option java_outer_classname = "UnilateralDocflowProtos";
 
 message UnilateralDocflow
 {
-	 bool IsFinished = 1;
+	optional bool IsFinished = 1;
 
-	 ReceiptDocflow ReceiptDocflow = 2;
+	optional ReceiptDocflow ReceiptDocflow = 2;
 
-	 bool IsReceiptRequested = 3;
+	optional bool IsReceiptRequested = 3;
 
-	 bool CanDocumentBeReceipted = 4;
-	 bool CanDocumentBeSignedBySender = 5;
+	optional bool CanDocumentBeReceipted = 4;
+	optional bool CanDocumentBeSignedBySender = 5;
 }

@@ -1,8 +1,11 @@
-syntax="proto3";
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "CertificateInfoProtos";
 
 message CertificateInfo {
-	 string Thumbprint = 1;
-	 sfixed64 ValidFrom = 2;
-	 sfixed64 ValidTo = 3;
+	optional string Thumbprint = 1;
+	optional sfixed64 ValidFrom = 2;
+	optional sfixed64 ValidTo = 3;
+	optional string OrganizationName = 4;
+	optional string Inn = 5;
 }

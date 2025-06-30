@@ -1,65 +1,66 @@
-syntax="proto3";
 import "Timestamp.proto";
 import "Docflow/Attachment.proto";
 import "Docflow/ReceiptDocflow.proto";
 
-package Diadoc.Proto.Docflow;
+package Diadoc.Api.Proto.Docflow;
+
+option java_outer_classname = "InvoiceDocflowProtos";
 
 message InboundInvoiceDocflow
 {
-	 bool IsFinished = 1;
+	optional bool IsFinished = 1;
 
-	 InboundInvoiceReceiptDocflow ReceiptDocflow = 2;
-	 InvoiceConfirmationDocflow ConfirmationDocflow = 3;
-	 InvoiceCorrectionRequestDocflow CorrectionRequestDocflow = 4;
+	optional InboundInvoiceReceiptDocflow ReceiptDocflow = 2;
+	optional InvoiceConfirmationDocflow ConfirmationDocflow = 3;
+	optional InvoiceCorrectionRequestDocflow CorrectionRequestDocflow = 4;
 
-	 Timestamp ConfirmationTimestamp = 5;
+	optional Timestamp ConfirmationTimestamp = 5;
 
-	 bool IsAmendmentRequested = 6;
-	 bool IsRevised = 7;
-	 bool IsCorrected = 8;
+	optional bool IsAmendmentRequested = 6;
+	optional bool IsRevised = 7;
+	optional bool IsCorrected = 8;
 }
 
 message OutboundInvoiceDocflow
 {
-	 bool IsFinished = 1;
+	optional bool IsFinished = 1;
 
-	 ReceiptDocflow ReceiptDocflow = 2;
-	 InvoiceConfirmationDocflow ConfirmationDocflow = 3;
-	 InvoiceCorrectionRequestDocflow CorrectionRequestDocflow = 4;
+	optional ReceiptDocflow ReceiptDocflow = 2;
+	optional InvoiceConfirmationDocflow ConfirmationDocflow = 3;
+	optional InvoiceCorrectionRequestDocflow CorrectionRequestDocflow = 4;
 
-	 Timestamp ConfirmationTimestamp = 5;
+	optional Timestamp ConfirmationTimestamp = 5;
 
-	 bool IsAmendmentRequested = 6;
-	 bool IsRevised = 7;
-	 bool IsCorrected = 8;
+	optional bool IsAmendmentRequested = 6;
+	optional bool IsRevised = 7;
+	optional bool IsCorrected = 8;
 
-	 bool CanDocumentBeSignedBySender = 9;
+	optional bool CanDocumentBeSignedBySender = 9;
 }
 
 message InvoiceConfirmationDocflow
 {
-	 bool IsFinished = 1;
+	optional bool IsFinished = 1;
 
-	 SignedAttachment ConfirmationAttachment = 2;
+	optional SignedAttachment ConfirmationAttachment = 2;
 
-	 ReceiptDocflow ReceiptDocflow = 3;
+	optional ReceiptDocflow ReceiptDocflow = 3;
 }
 
 message InboundInvoiceReceiptDocflow
 {
-	 bool IsFinished = 1;
+	optional bool IsFinished = 1;
 
-	 SignedAttachment ReceiptAttachment = 2;
+	optional SignedAttachment ReceiptAttachment = 2;
 
-	 InvoiceConfirmationDocflow ConfirmationDocflow = 3;
+	optional InvoiceConfirmationDocflow ConfirmationDocflow = 3;
 }
 
 message InvoiceCorrectionRequestDocflow
 {
-	 bool IsFinished = 1;
+	optional bool IsFinished = 1;
 
-	 SignedAttachment CorrectionRequestAttachment = 2;
+	optional SignedAttachment CorrectionRequestAttachment = 2;
 
-	 ReceiptDocflow ReceiptDocflow = 3;
+	optional ReceiptDocflow ReceiptDocflow = 3;
 }

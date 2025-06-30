@@ -1,14 +1,16 @@
-syntax="proto3";
 // docflow api
 // GetDocflows(boxId, GetDocflowBatchRequest) : GetDocflowBatchResponse
 // GetDocflowEvents(boxId, GetDocflowEventsRequest) : GetDocflowEventsResponse
 
 import "Timestamp.proto";
 import "DocumentId.proto";
+import "TotalCountType.proto";
 import "TimeBasedFilter.proto";
 import "Docflow/DocumentWithDocflow.proto";
 
-package Diadoc.Proto.Docflow;
+package Diadoc.Api.Proto.Docflow;
+
+option java_outer_classname = "DocflowApiProtos";
 
 message GetDocflowBatchRequest
 {
@@ -17,9 +19,9 @@ message GetDocflowBatchRequest
 
 message GetDocflowRequest
 {
-	 DocumentId DocumentId = 1;
-	 string LastEventId = 2;
-	 bool InjectEntityContent = 3;
+	required DocumentId DocumentId = 1;
+	optional string LastEventId = 2;
+	optional bool InjectEntityContent = 3 [default = false];
 }
 
 message GetDocflowBatchResponse
@@ -38,61 +40,68 @@ enum SearchScope
 
 message SearchDocflowsRequest
 {
-	 string QueryString = 1;
-	 int32 Count = 2;
-	 int32 FirstIndex = 3;
-	 SearchScope Scope = 4;
-	 bool InjectEntityContent = 5;
+	required string QueryString = 1;
+	optional int32 Count = 2 [default = 100];
+	optional int32 FirstIndex = 3;
+	optional SearchScope Scope = 4 [default = SearchScopeAny];
+	optional bool InjectEntityContent = 5 [default = false];
 }
 
 message SearchDocflowsResponse
 {
 	repeated DocumentWithDocflow Documents = 1;
-	 bool HaveMoreDocuments = 2;
+	optional bool HaveMoreDocuments = 2;
 }
 
 message GetDocflowsByPacketIdRequest
 {
-	 string PacketId = 1;
-	 int32 Count = 2;
-	 bool InjectEntityContent = 3;
-	 bytes AfterIndexKey = 4;
+	required string PacketId = 1;
+	optional int32 Count = 2 [default = 100];
+	optional bool InjectEntityContent = 3 [default = false];
+	optional bytes AfterIndexKey = 4;
 }
 
 message FetchedDocument
 {
-	 DocumentWithDocflow Document = 1;
-	 bytes IndexKey = 2;
+	required DocumentWithDocflow Document = 1;
+	required bytes IndexKey = 2;
 }
 
 message GetDocflowsByPacketIdResponse
 {
 	repeated FetchedDocument Documents = 1;
-	 bytes NextPageIndexKey = 2;
+	optional bytes NextPageIndexKey = 2;
 }
 
 message GetDocflowEventsRequest
 {
-	 TimeBasedFilter Filter = 1;
-	 bytes AfterIndexKey = 2;
-	 bool PopulateDocuments = 3;
-	 bool InjectEntityContent = 4;
-	 bool PopulatePreviousDocumentStates = 5;
+	required TimeBasedFilter Filter = 1;
+	optional bytes AfterIndexKey = 2;
+	optional bool PopulateDocuments = 3 [default = false];
+	optional bool InjectEntityContent = 4 [default = false];
+	optional bool PopulatePreviousDocumentStates = 5 [default = false];
+	repeated string MessageTypes = 6;
+	repeated string DocumentDirections = 7;
+	optional string DepartmentId = 8;
+	repeated string TypeNamedIds = 9;
+	optional string CounteragentBoxId = 10;
+	optional int32 Limit = 11 [default = 100];
 }
 
 message GetDocflowEventsResponse
 {
-	 int32 TotalCount = 1;
+	optional int32 TotalCount = 1;
 	repeated DocflowEvent Events = 2;
+	required TotalCountType TotalCountType = 3;
 }
 
 message DocflowEvent
 {
-	 string EventId = 1;
-	 Timestamp Timestamp = 2;
-	 DocumentId DocumentId = 3;
-	 bytes IndexKey = 4;
-	 DocumentWithDocflow Document = 5;
-	 string PreviousEventId = 6;
-	 DocumentWithDocflow PreviousDocumentState = 7;
+	optional string EventId = 1;
+	optional Timestamp Timestamp = 2;
+	optional DocumentId DocumentId = 3;
+	optional bytes IndexKey = 4;
+	optional DocumentWithDocflow Document = 5;
+	optional string PreviousEventId = 6;
+	optional DocumentWithDocflow PreviousDocumentState = 7;
 }

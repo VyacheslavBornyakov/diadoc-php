@@ -1,10 +1,11 @@
-syntax="proto3";
 import "Timestamp.proto";
 
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "ForwardDocumentEventProtos";
 
 message ForwardDocumentEvent
 {
-	 Timestamp Timestamp = 1;
-	 string ToBoxId = 2;
+	optional Timestamp Timestamp = 1;
+	optional string ToBoxId = 2;
 }

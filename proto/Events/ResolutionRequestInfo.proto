@@ -1,18 +1,15 @@
-syntax="proto3";
+import "ResolutionAction.proto";
 import "ResolutionTarget.proto";
+import "ResolutionRequestType.proto";
 
-package Diadoc.Proto.Events;
+package Diadoc.Api.Proto.Events;
+
+option java_outer_classname = "ResolutionRequestInfoProtos";
 
 message ResolutionRequestInfo {
-	 ResolutionRequestType RequestType = 1;
-	 string Author = 2;
-	 ResolutionTarget Target = 3;
-	 string ResolvedWith = 4;
-}
-
-enum ResolutionRequestType {
-	ApprovementRequest = 0;
-	UnknownResolutionRequestType = -1;
-	SignatureRequest = 1;
-	ApprovementSignatureRequest = 2;
+	optional ResolutionRequestType RequestType = 1 [default = UnknownResolutionRequestType];
+	required string Author = 2;
+	optional ResolutionTarget Target = 3;
+	optional string ResolvedWith = 4;
+	repeated ResolutionAction Actions = 5;
 }

@@ -1,7 +1,8 @@
-syntax="proto3";
-package Diadoc.Proto.Events;
+package Diadoc.Api.Proto.Events;
+
+option java_outer_classname = "ResolutionRequestDenialInfoProtos";
 
 message ResolutionRequestDenialInfo {
-	 string Author = 1;
-	 string InitialRequestId = 2;
+	required string Author = 1;
+	optional string InitialRequestId = 2;
 }

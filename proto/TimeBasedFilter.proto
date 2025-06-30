@@ -1,13 +1,14 @@
-syntax="proto3";
 import "Timestamp.proto";
 
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "TimeBasedFilterProtos";
 
 message TimeBasedFilter
 {
-	 Timestamp FromTimestamp = 1;
-	 Timestamp ToTimestamp = 2;
-	 SortDirection SortDirection = 3;
+	optional Timestamp FromTimestamp = 1;
+	optional Timestamp ToTimestamp = 2;
+	optional SortDirection SortDirection = 3 [default = Ascending];
 }
 
 enum SortDirection

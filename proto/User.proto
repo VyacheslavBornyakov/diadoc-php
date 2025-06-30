@@ -1,12 +1,26 @@
-syntax="proto3";
 import "CertificateInfo.proto";
 
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "UserProtos";
 
 message User {
-	 string Id = 1;
-	 string LastName = 2;
-	 string FirstName = 3;
-	 string MiddleName = 4;
+	optional string Id = 1;
+	optional string LastName = 2;
+	optional string FirstName = 3;
+	optional string MiddleName = 4;
 	repeated CertificateInfo CloudCertificates = 5;
+}
+
+message UserV2 {
+	required string UserId = 1;
+	optional string Login = 2;
+	optional FullName FullName = 3;
+	required bool IsRegistered = 4;
+}
+
+message FullName {
+	required string LastName = 1;
+	required string FirstName = 2;
+	optional string MiddleName = 3;
 }

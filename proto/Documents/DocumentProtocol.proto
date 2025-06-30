@@ -1,7 +1,8 @@
-syntax="proto3";
-package Diadoc.Proto.Documents;
+package Diadoc.Api.Proto.Documents;
+
+option java_outer_classname = "DocumentProtocolProtos";
 
 message DocumentProtocol {
-	 bytes PrintForm = 1;
-	 bytes Signature = 2;
+	required bytes PrintForm = 1;
+	required bytes Signature = 2;
 }

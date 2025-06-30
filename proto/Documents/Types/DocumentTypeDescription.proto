@@ -1,11 +1,13 @@
-syntax="proto3";
+import "Invoicing/ExtendedSigner.proto";
 
-package Diadoc.Proto.Documents.Types;
+package Diadoc.Api.Proto.Documents.Types;
+
+option java_outer_classname = "DocumentTypeDescriptionProtos";
 
 message DetectedDocumentType {
-	string TypeNamedId = 1;
-	string Function = 2;
-	string Version = 3;
+	required string TypeNamedId = 1;
+	required string Function = 2;
+	required string Version = 3;
 }
 
 message DetectDocumentTypesResponse {

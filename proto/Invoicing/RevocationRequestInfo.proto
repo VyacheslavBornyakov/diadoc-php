@@ -1,9 +1,10 @@
-syntax="proto3";
 import "Invoicing/Signer.proto";
 
-package Diadoc.Proto.Invoicing;
+package Diadoc.Api.Proto.Invoicing;
+
+option java_outer_classname = "RevocationRequestInfoProtos";
 
 message RevocationRequestInfo {
-	 string Comment = 1;
-	 Signer Signer = 2;
+	optional string Comment = 1;
+	optional Signer Signer = 2;
 }

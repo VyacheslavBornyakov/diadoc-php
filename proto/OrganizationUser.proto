@@ -1,16 +1,17 @@
-syntax="proto3";
 import "OrganizationUserPermissions.proto";
 
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "OrganizationUserProtos";
 
 message OrganizationUser {
-	 string Id = 1;
-	 string Name = 2; // ФИО сотрудника
-	 OrganizationUserPermissions Permissions = 3;
-         string Position = 4;
+	required string Id = 1;
+	required string Name = 2; // ФИО сотрудника
+	required OrganizationUserPermissions Permissions = 3;
+        required string Position = 4;
 }
 
 message OrganizationUsersList {
 	repeated OrganizationUser Users = 1;
-	 string CurrentUserId = 2;
+	required string CurrentUserId = 2;
 }

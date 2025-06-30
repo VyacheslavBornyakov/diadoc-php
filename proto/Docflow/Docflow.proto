@@ -1,4 +1,3 @@
-syntax="proto3";
 import "Timestamp.proto";
 import "CustomDataItem.proto";
 import "Docflow/Attachment.proto";
@@ -8,46 +7,55 @@ import "Docflow/BilateralDocflow.proto";
 import "Docflow/XmlBilateralDocflow.proto";
 import "Docflow/RevocationDocflow.proto";
 import "Docflow/ResolutionDocflow.proto";
+import "Docflow/UniversalTransferDocumentDocflow.proto";
+import "Docflow/RoamingNotification.proto";
 
-package Diadoc.Proto.Docflow;
+package Diadoc.Api.Proto.Docflow;
+
+option java_outer_classname = "DocflowProtos";
 
 message Docflow
 {
-	 bool IsFinished = 1;
+	optional bool IsFinished = 1;
 
-	 SignedAttachment DocumentAttachment = 2;
+	optional SignedAttachment DocumentAttachment = 2;
 
-	 string DepartmentId = 3;
-	 bool DocumentIsDeleted = 4;
-	 DocflowStatus DocflowStatus = 5;
-	 Timestamp SendTimestamp = 6;
-	 Timestamp DeliveryTimestamp = 7;
+	optional string DepartmentId = 3;
+	optional bool DocumentIsDeleted = 4;
+	optional DocflowStatus DocflowStatus = 5;
+	optional Timestamp SendTimestamp = 6;
+	optional Timestamp DeliveryTimestamp = 7;
 
-	 InboundInvoiceDocflow InboundInvoiceDocflow = 8;   // for Invoice, InvoiceRevision, InvoiceCorrection, InvoiceCorrectionRevision
-	 OutboundInvoiceDocflow OutboundInvoiceDocflow = 9; // for Invoice, InvoiceRevision, InvoiceCorrection, InvoiceCorrectionRevision
-	 XmlBilateralDocflow XmlBilateralDocflow = 10;      // for XmlTorg12, XmlAcceptanceCertificate
-	 BilateralDocflow BilateralDocflow = 11;            // for Nonformalized, Torg12, AcceptanceCertificate, TrustConnectionRequest, PriceList, PriceListAgreement, CertificateRegistry, ReconciliationAct, Contract, Torg13
-	 UnilateralDocflow UnilateralDocflow = 12;          // for ProformaInvoice, ServiceDetails
-	 RevocationDocflow RevocationDocflow = 13;
-	 ResolutionDocflow ResolutionDocflow = 14;
+	optional InboundInvoiceDocflow InboundInvoiceDocflow = 8;   // for Invoice, InvoiceRevision, InvoiceCorrection, InvoiceCorrectionRevision
+	optional OutboundInvoiceDocflow OutboundInvoiceDocflow = 9; // for Invoice, InvoiceRevision, InvoiceCorrection, InvoiceCorrectionRevision
+	optional XmlBilateralDocflow XmlBilateralDocflow = 10;      // for XmlTorg12, XmlAcceptanceCertificate
+	optional BilateralDocflow BilateralDocflow = 11;            // for Nonformalized, Torg12, AcceptanceCertificate, TrustConnectionRequest, PriceList, PriceListAgreement, CertificateRegistry, ReconciliationAct, Contract, Torg13
+	optional UnilateralDocflow UnilateralDocflow = 12;          // for ProformaInvoice, ServiceDetails
+	optional RevocationDocflow RevocationDocflow = 13;
+	optional ResolutionDocflow ResolutionDocflow = 14;
 
-	 bool CanDocumentBeRevokedUnilaterallyBySender = 15;
-	 string PacketId = 16;
+	optional bool CanDocumentBeRevokedUnilaterallyBySender = 15;
+	optional string PacketId = 16;
 
 	repeated CustomDataItem CustomData = 17;
+
+	optional InboundUniversalTransferDocumentDocflow InboundUniversalTransferDocumentDocflow = 18; // for UniversalTransferDocument, UniversalTransferDocumentRevision, UniversalCorrectionDocument
+	optional OutboundUniversalTransferDocumentDocflow OutboundUniversalTransferDocumentDocflow = 19; // for UniversalTransferDocument, UniversalTransferDocumentRevision, UniversalCorrectionDocument
+    
+	optional RoamingNotification RoamingNotification = 20;
 }
 
 message DocflowStatus
 {
-	 DocflowStatusModel PrimaryStatus = 1;
-	 DocflowStatusModel SecondaryStatus = 2;
+	optional DocflowStatusModel PrimaryStatus = 1;
+	optional DocflowStatusModel SecondaryStatus = 2;
 }
 
 message DocflowStatusModel
 {
-	 DocflowStatusSeverity Severity = 1;
-	 string StatusText = 2;
-	 string StatusHint = 3;
+	optional DocflowStatusSeverity Severity = 1 [default = UnknownDocflowStatusSeverity];
+	optional string StatusText = 2;
+	optional string StatusHint = 3;
 }
 
 enum DocflowStatusSeverity

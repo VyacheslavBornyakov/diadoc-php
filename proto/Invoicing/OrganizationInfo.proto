@@ -1,34 +1,35 @@
-syntax="proto3";
 import "Address.proto";
 
-package Diadoc.Proto.Invoicing;
+package Diadoc.Api.Proto.Invoicing;
+
+option java_outer_classname = "OrganizationInfoProtos";
 
 message DocflowParticipant {
-	 string BoxId = 1;								// идентификатор ящика в Диадоке
-	 string Inn = 2;								// ИНН организации-участника обмена
-	 string Kpp = 3;								// КПП организации-участника обмена
-	 string FnsParticipantId = 4;					// идентификатор участника ЭДО
+	optional string BoxId = 1;								// идентификатор ящика в Диадоке
+	optional string Inn = 2;								// ИНН организации-участника обмена
+	optional string Kpp = 3;								// КПП организации-участника обмена
+	optional string FnsParticipantId = 4;					// идентификатор участника ЭДО
 }
 
 message DiadocOrganizationInfo {
-	 string BoxId = 1;								// идентификатор ящика в Диадоке
-	 OrganizationInfo OrgInfo = 2;					// реквизиты организации
+	optional string BoxId = 1;								// идентификатор ящика в Диадоке
+	optional OrganizationInfo OrgInfo = 2;					// реквизиты организации
 }
 
 message OrganizationInfo {
-	 string Name = 1;								// название
-	 string Inn = 2;								// ИНН
-	 string Kpp = 3;								// КПП
-	 Address Address = 4;							// адрес
-	 bool IsSoleProprietor = 5;	// организация - это ИП
-	 string Okopf = 6;								// код организационно-правовой формы по ОКОПФ
-	 string Okpo = 7;								// код в общероссийском классификаторе предприятий и организаций
-	 string Okdp = 8;								// код основного вида деятельности по ОКДП
-	 string Phone = 9;								// телефон
-	 string Fax = 10;								// факс
-	 string BankAccountNumber = 11;					// номер банковского счета
-	 string BankName = 12;							// название банка
-	 string BankId = 13;							// БИК
-	 string Department = 14;						// структурное подразделение
-	 string FnsParticipantId = 15;					// идентификатор участника ЭДО
+	required string Name = 1;								// название
+	optional string Inn = 2;								// ИНН
+	optional string Kpp = 3;								// КПП
+	required Address Address = 4;							// адрес
+	optional bool IsSoleProprietor = 5 [default = false];	// организация - это ИП
+	optional string Okopf = 6;								// код организационно-правовой формы по ОКОПФ
+	optional string Okpo = 7;								// код в общероссийском классификаторе предприятий и организаций
+	optional string Okdp = 8;								// код основного вида деятельности по ОКДП
+	optional string Phone = 9;								// телефон
+	optional string Fax = 10;								// факс
+	optional string BankAccountNumber = 11;					// номер банковского счета
+	optional string BankName = 12;							// название банка
+	optional string BankId = 13;							// БИК
+	optional string Department = 14;						// структурное подразделение
+	optional string FnsParticipantId = 15;					// идентификатор участника ЭДО
 }

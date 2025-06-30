@@ -1,13 +1,14 @@
-syntax="proto3";
-package Diadoc.Proto.KeyValueStorage;
+package Diadoc.Api.Proto.KeyValueStorage;
+
+option java_outer_classname = "KeyValueStorageProtos";
 
 ///////////////////////////////////////////////////////////////////////////////
 // Протобуфер для представления записи хранилища, то есть пары (ключ, значение)
 
 // Пара (ключ, значение) для хранения в хранилище
 message KeyValueStorageEntry {
-	 string Key = 1;
-	 string Value = 2;
+	required string Key = 1;
+	required string Value = 2;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -1,22 +1,31 @@
-syntax="proto3";
 import "Events/DiadocMessage-PostApi.proto";
+import "DocumentId.proto";
 
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "AcquireCounteragentProtos";
 
 message AcquireCounteragentRequest {
-	 string OrgId = 1;
-	 string Inn = 2;
-	 string MessageToCounteragent = 3;
-	 InvitationDocument InvitationDocument = 4;
+	optional string OrgId = 1;
+	optional string Inn = 2;
+	optional string MessageToCounteragent = 3;
+	optional InvitationDocument InvitationDocument = 4;
+	optional string BoxId = 5;
 }
 
 message InvitationDocument {
-	 Events.SignedContent SignedContent = 1;
-	 string FileName = 2;
-	 bool SignatureRequested = 3;
-	 string Type = 4;
+	required Events.SignedContent SignedContent = 1;
+	required string FileName = 2;
+	optional bool SignatureRequested = 3 [default = false];
+	optional string Type = 4;
 }
 
 message AcquireCounteragentResult {
-	 string OrgId = 1;
+	required string OrgId = 1;
+	optional DocumentId InvitationDocumentId = 2;
+}
+
+message AcquireCounteragentResultV2 {
+	required string BoxId = 1;
+	optional DocumentId InvitationDocumentId = 2;
 }

@@ -1,10 +1,11 @@
-syntax="proto3";
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "DocumentTypeProtos";
 
 enum DocumentType
 {
-	Nonformalized = 0;
 	UnknownDocumentType = -1; // reserved for backward compatibility
+	Nonformalized = 0;
 	Invoice = 1;
 	TrustConnectionRequest = 11;
 	Torg12 = 12;
@@ -24,14 +25,8 @@ enum DocumentType
 	ServiceDetails = 38;
 	SupplementaryAgreement = 40;
 	UniversalTransferDocument = 41;
-	UniversalTransferDocumentRevision = 42;
-	UniversalCorrectionDocument = 43;
-	UniversalCorrectionDocumentRevision = 44;
-	StorageInventoryAcceptanceCertificate = 45;
-	ReturnInventoryAcceptanceCertificate = 46;
-	Torg2 = 47;
-	ElectricityIndication = 48;
-	Waybill = 49;
-	PowerOfAttorney = 50;
-	LogisticsWaybill = 51;
+	UniversalTransferDocumentRevision = 45;
+	MesNotification = 46;
+	UniversalCorrectionDocument = 49;
+	UniversalCorrectionDocumentRevision = 50;
 }

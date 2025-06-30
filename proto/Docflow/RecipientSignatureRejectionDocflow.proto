@@ -1,14 +1,15 @@
-syntax="proto3";
 import "Timestamp.proto";
 import "Docflow/Attachment.proto";
 
-package Diadoc.Proto.Docflow;
+package Diadoc.Api.Proto.Docflow;
+
+option java_outer_classname = "RecipientSignatureRejectionDocflowProtos";
 
 message RecipientSignatureRejectionDocflow
 {
-	 bool IsFinished = 1;
+	optional bool IsFinished = 1;
 
-	 SignedAttachment RecipientSignatureRejectionAttachment = 2;
+	optional SignedAttachment RecipientSignatureRejectionAttachment = 2;
 
-	 Timestamp DeliveryTimestamp = 3;
+	optional Timestamp DeliveryTimestamp = 3;
 }

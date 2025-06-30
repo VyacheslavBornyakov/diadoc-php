@@ -1,11 +1,12 @@
-syntax="proto3";
 import "DocumentId.proto";
 
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "Content_v2Protos";
 
 message Content_v2 {
-	 bytes Content = 1;
-	 string NameOnShelf = 2;
-	 string PatchedContentId = 3;
-	 DocumentIdEx DocumentId = 4;
+	optional bytes Content = 1;
+	optional string NameOnShelf = 2;
+	optional string PatchedContentId = 3;
+	optional DocumentIdEx DocumentId = 4;
 }

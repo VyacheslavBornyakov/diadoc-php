@@ -1,24 +1,25 @@
-syntax="proto3";
 import "Timestamp.proto";
 
-package Diadoc.Proto;
+package Diadoc.Api.Proto;
+
+option java_outer_classname = "SignatureVerificationResultProtos";
 
 message SignatureVerificationResult
 {
-	 bool IsValid = 1;
-	 CertificateVerificationResult CertificateStatus = 2;
-	 Timestamp SignatureTimestamp = 3;
+	required bool IsValid = 1;
+	optional CertificateVerificationResult CertificateStatus = 2;
+	optional Timestamp SignatureTimestamp = 3;
 }
 
 message CertificateVerificationResult
 {
-	 bool IsValid = 2;
+	required bool IsValid = 2;
 	repeated CertificateChainElement CertificateChain = 3; // first element corresponds to signer certificate
-	 Timestamp VerificationTime = 4;
+	required Timestamp VerificationTime = 4;
 }
 
 message CertificateChainElement
 {
-	 int32 CertificateChainStatusFlags = 1; // X509ChainStatusFlags value
-	 bytes DerCertificate = 2;
+	required int32 CertificateChainStatusFlags = 1; // X509ChainStatusFlags value
+	required bytes DerCertificate = 2;
 }

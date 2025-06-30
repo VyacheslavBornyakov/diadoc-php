@@ -1,6 +1,10 @@
-syntax="proto3";
+import "Timestamp.proto";
+import "ResolutionTarget.proto";
+import "Docflow/Attachment.proto";
 
-package Diadoc.Proto.Docflow;
+package Diadoc.Api.Proto.Docflow;
+
+option java_outer_classname = "ResolutionDocflowProtos";
 
 message ResolutionDocflow
 {
