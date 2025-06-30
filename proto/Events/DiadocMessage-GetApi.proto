@@ -26,22 +26,22 @@ option java_outer_classname = "DiadocMessage_GetApiProtos";
 message BoxEventList {
 	repeated BoxEvent Events = 1;
 	optional int32 TotalCount = 2;
-	required TotalCountType TotalCountType = 3;
+	optional TotalCountType TotalCountType = 3;
 }
 
 message BoxEvent {
-	required string EventId = 1;
+	optional string EventId = 1;
 	optional Message Message = 2;
 	optional MessagePatch Patch = 3;
 	optional string IndexKey = 4;
 }
 
 message Message {
-	required string MessageId = 1;
-	required sfixed64 TimestampTicks = 2;			// DateTime.Ticks in UTC
-	required sfixed64 LastPatchTimestampTicks = 3;	// DateTime.Ticks in UTC
-	required string FromBoxId = 4;
-	required string FromTitle = 5;
+	optional string MessageId = 1;
+	optional sfixed64 TimestampTicks = 2;			// DateTime.Ticks in UTC
+	optional sfixed64 LastPatchTimestampTicks = 3;	// DateTime.Ticks in UTC
+	optional string FromBoxId = 4;
+	optional string FromTitle = 5;
 	optional string ToBoxId = 6;
 	optional string ToTitle = 7;
 	repeated Entity Entities = 8;
@@ -57,31 +57,31 @@ message Message {
 	optional string ProxyBoxId = 18;
 	optional string ProxyTitle = 19;
 	optional bool PacketIsLocked = 20 [default = false];
-	required LockMode LockMode = 21 [default = None];
-	required Documents.MessageType MessageType = 22;
+	optional LockMode LockMode = 21 [default = None];
+	optional Documents.MessageType MessageType = 22;
 	optional TemplateToLetterTransformationInfo TemplateToLetterTransformationInfo = 23;
 	optional bool IsReusable = 24 [default = false];
 }
 
 message Template {
-    required string MessageId = 1;
-    required sfixed64 TimestampTicks = 2;
-    required string FromBoxId = 3;
-    required string ToBoxId = 4;
-    required string MessageFromBoxId = 5;
-    required string MessageToBoxId = 6;
+    optional string MessageId = 1;
+    optional sfixed64 TimestampTicks = 2;
+    optional string FromBoxId = 3;
+    optional string ToBoxId = 4;
+    optional string MessageFromBoxId = 5;
+    optional string MessageToBoxId = 6;
     repeated Entity Entities = 7;
     optional bool IsDeleted = 8 [default = false];
     optional string MessageToDepartmentId = 9;
-    required LockMode LockMode = 10;
+    optional LockMode LockMode = 10;
     optional string MessageProxyBoxId = 11;
     optional string MessageProxyDepartmentId = 12;
 	optional bool IsReusable = 13 [default = false];
 }
 
 message MessagePatch {
-	required string MessageId = 1;
-	required sfixed64 TimestampTicks = 2;	// DateTime.Ticks in UTC
+	optional string MessageId = 1;
+	optional sfixed64 TimestampTicks = 2;	// DateTime.Ticks in UTC
 	repeated Entity Entities = 3;
 	optional bool ForDraft = 4 [default = false];
 	optional bool DraftIsRecycled = 5 [default = false];
@@ -92,14 +92,14 @@ message MessagePatch {
 	optional bool MessageIsRestored = 10 [default = false];
 	optional bool MessageIsDelivered = 11 [default = false];
 	optional string DeliveredPatchId = 12;
-	required string PatchId = 13;
+	optional string PatchId = 13;
 	optional string NotDeliveredEventId = 14;
-	required Documents.MessageType MessageType = 15;
+	optional Documents.MessageType MessageType = 15;
 }
 
 message Entity {
 	optional EntityType EntityType = 1 [default = UnknownEntityType];
-	required string EntityId = 2;
+	optional string EntityId = 2;
  	optional string AuthorUserId = 33;
 	optional string ParentEntityId = 3;
 	optional Content Content = 4;											// null <=> there is no content for this entity (very unlikely to happen)
@@ -135,7 +135,7 @@ message Entity {
 }
 
 message EntityPatch {
-	required string EntityId = 1;
+	optional string EntityId = 1;
 	optional bool DocumentIsDeleted = 2 [default = false];
 	optional string MovedToDepartment = 3;
 	optional bool DocumentIsRestored = 4 [default = false];
@@ -145,8 +145,8 @@ message EntityPatch {
 
 message TemplateToLetterTransformationInfo
 {
-	required string LetterFromBoxId = 1;
-	required string LetterToBoxId = 2;
+	optional string LetterFromBoxId = 1;
+	optional string LetterToBoxId = 2;
 	optional string LetterFromDepartmentId = 3;
 	optional string LetterToDepartmentId = 4;
 	optional string LetterProxyBoxId = 5;
@@ -161,15 +161,15 @@ message TemplateTransformationInfo
 
 message TemplateRefusalInfo
 {
-	required TemplateRefusalType Type = 1 [default = UnknownTemplateRefusalType];
-	required string BoxId = 2;
+	optional TemplateRefusalType Type = 1 [default = UnknownTemplateRefusalType];
+	optional string BoxId = 2;
 	optional string Author = 3;
 	optional string Comment = 4;
 }
 
 message MoveDocumentInfo {
-	required string MovedFromDepartment = 1;
-	required string MovedToDepartment = 2;
+	optional string MovedFromDepartment = 1;
+	optional string MovedToDepartment = 2;
 }
 
 enum TemplateRefusalType {

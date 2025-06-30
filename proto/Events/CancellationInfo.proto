@@ -3,5 +3,5 @@ package Diadoc.Api.Proto.Events;
 option java_outer_classname = "CancellationInfoProtos";
 
 message CancellationInfo {
-	required string Author = 1;
+	optional string Author = 1;
 }

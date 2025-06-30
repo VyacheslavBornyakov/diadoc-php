@@ -8,28 +8,28 @@ option java_outer_classname = "EmployeeProtos";
 
 message Employee
 {
-	required UserV2 User = 1;
-	required EmployeePermissions Permissions = 2;
-	required string Position = 3;
-	required bool CanBeInvitedForChat = 4;
+	optional UserV2 User = 1;
+	optional EmployeePermissions Permissions = 2;
+	optional string Position = 3;
+	optional bool CanBeInvitedForChat = 4;
 	optional Timestamp CreationTimestamp = 5;
 }
 
 message EmployeePermissions {
-	required string UserDepartmentId = 1;
-	required bool IsAdministrator = 2;
-	required DocumentAccessLevel DocumentAccessLevel = 3 [default = UnknownDocumentAccessLevel];
+	optional string UserDepartmentId = 1;
+	optional bool IsAdministrator = 2;
+	optional DocumentAccessLevel DocumentAccessLevel = 3 [default = UnknownDocumentAccessLevel];
 	repeated string SelectedDepartmentIds = 4;
 	repeated EmployeeAction Actions = 5;
 	optional AuthorizationPermission AuthorizationPermission = 6;
 }
 
 message EmployeeAction {
-	required string Name = 1;
-	required bool IsAllowed = 2;
+	optional string Name = 1;
+	optional bool IsAllowed = 2;
 }
 
 message EmployeeList {
 	repeated Employee Employees = 1;
-	required int32 TotalCount = 2;
+	optional int32 TotalCount = 2;
 }

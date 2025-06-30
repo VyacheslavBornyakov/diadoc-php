@@ -9,10 +9,10 @@ message OrganizationList {
 }
 
 message Organization {
-	required string OrgId = 1;
-	required string Inn = 2;
+	optional string OrgId = 1;
+	optional string Inn = 2;
 	optional string Kpp = 3;
-	required string FullName = 4;
+	optional string FullName = 4;
 	optional string ShortName = 5;
 	repeated Box Boxes = 7;
 	optional string Ogrn = 8;
@@ -29,7 +29,7 @@ message Organization {
 	optional bool IsEmployee = 19;
 	optional int32 InvitationCount = 20;
 	optional int32 SearchCount = 21;
-	required Sociability Sociability = 22;
+	optional Sociability Sociability = 22;
 	optional string LiquidationDate = 23;
 	optional string CertificateOfRegistryInfo = 24;
 	optional bool IsForeign = 25;
@@ -37,9 +37,9 @@ message Organization {
 }
 
 message Department {
-	required string DepartmentId = 1;
-	required string ParentDepartmentId = 2;
-	required string Name = 3;
+	optional string DepartmentId = 1;
+	optional string ParentDepartmentId = 2;
+	optional string Name = 3;
 	optional string Abbreviation = 4;
 	optional string Kpp = 5;
 	optional Address Address = 6;
@@ -52,9 +52,9 @@ enum OrganizationInvoiceFormatVersion {
 }
 
 message Box {
-	required string BoxId = 1;
-	required string BoxIdGuid = 6;
-	required string Title = 2;
+	optional string BoxId = 1;
+	optional string BoxIdGuid = 6;
+	optional string Title = 2;
 	optional Organization Organization = 3;
 	optional OrganizationInvoiceFormatVersion InvoiceFormatVersion = 4 [default = v5_02];
 	optional bool EncryptedDocumentsAllowed = 5;

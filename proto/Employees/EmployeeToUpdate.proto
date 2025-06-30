@@ -24,17 +24,17 @@ message EmployeePermissionsPatch
 
 message EmployeeDepartmentPatch
 {
-	required string DepartmentId = 1;
+	optional string DepartmentId = 1;
 }
 
 message EmployeeIsAdministratorPatch
 {
-	required bool IsAdministrator = 1;
+	optional bool IsAdministrator = 1;
 }
 
 message EmployeeDocumentAccessLevelPatch
 {
-	required DocumentAccessLevel DocumentAccessLevel = 1;
+	optional DocumentAccessLevel DocumentAccessLevel = 1;
 }
 
 message EmployeeSelectedDepartmentsPatch
@@ -49,10 +49,10 @@ message EmployeePositionPatch
 
 message EmployeeCanBeInvitedForChatPatch
 {
-	required bool CanBeInvitedForChat = 1;
+	optional bool CanBeInvitedForChat = 1;
 }
 
 message AuthorizationPermissionPatch {
-	required bool IsBlocked = 1;
+	optional bool IsBlocked = 1;
 	optional string Comment = 2;
 }

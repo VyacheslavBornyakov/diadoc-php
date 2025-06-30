@@ -8,9 +8,9 @@ option java_outer_classname = "DepartmentToCreateProtos";
 message DepartmentToCreate
 {
 	optional string ParentDepartmentId = 1;
-	required string Name = 2;
-	required string Abbreviation = 3;
+	optional string Name = 2;
+	optional string Abbreviation = 3;
 	optional string Kpp = 4;
 	optional Address Address = 5;
-	required Routing Routing = 6;
+	optional Routing Routing = 6;
 }

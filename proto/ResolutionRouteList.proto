@@ -7,6 +7,6 @@ message ResolutionRouteList {
 }
 
 message ResolutionRoute {
-	required string RouteId = 1;
-	required string Name = 2;
+	optional string RouteId = 1;
+	optional string Name = 2;
 }

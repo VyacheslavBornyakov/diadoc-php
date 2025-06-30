@@ -10,7 +10,7 @@ message TrustConnectionRequestMetadata {
 
 message BasicDocumentMetadata {
 	optional BilateralDocumentStatus DocumentStatus = 1 [default = UnknownBilateralDocumentStatus];
-	required string Total = 2;
+	optional string Total = 2;
 	optional string Vat = 3;
 	optional string Grounds = 4;
 	optional ReceiptStatus ReceiptStatus = 5 [default = UnknownReceiptStatus];
@@ -37,8 +37,8 @@ message SupplementaryAgreementMetadata {
 	optional BilateralDocumentStatus DocumentStatus = 1 [default = UnknownBilateralDocumentStatus];
 	optional string Total = 2;
 	optional string ContractType = 3;
-	required string ContractNumber = 4;
-	required string ContractDate = 5;
+	optional string ContractNumber = 4;
+	optional string ContractDate = 5;
 	optional ReceiptStatus ReceiptStatus = 6 [default = UnknownReceiptStatus];
 }
 

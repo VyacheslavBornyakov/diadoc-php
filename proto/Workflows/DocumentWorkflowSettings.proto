@@ -17,7 +17,7 @@ message DocumentWorkflowSettingsListV2 {
 }
 
 message DocumentWorkflowSettingsV2 {
-    required int32 Id = 1;
+    optional int32 Id = 1;
     repeated ParticipantSettingV2 Participants = 2;
     optional OperatorConfirmationReceiptBehavior.OperatorConfirmationReceiptBehavior OperatorConfirmationReceiptBehavior = 3 [default = Unknown];
     optional ReceiptOperatorConfirmationReceiptBehavior.ReceiptOperatorConfirmationReceiptBehavior ReceiptOperatorConfirmationReceiptBehavior = 4 [default = Unknown];
@@ -38,7 +38,7 @@ message DocumentWorkflowSettingsList {
 }
 
 message DocumentWorkflowSettings {
-    required int32 Id = 1;
+    optional int32 Id = 1;
     repeated ParticipantSetting Participants = 2;
     optional OperatorConfirmationReceiptBehavior.OperatorConfirmationReceiptBehavior OperatorConfirmationReceiptBehavior = 3 [default = Unknown];
     optional ReceiptOperatorConfirmationReceiptBehavior.ReceiptOperatorConfirmationReceiptBehavior ReceiptOperatorConfirmationReceiptBehavior = 4 [default = Unknown];

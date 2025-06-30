@@ -6,6 +6,6 @@ option java_outer_classname = "CounteragentGroupToCreateProtos";
 
 message CounteragentGroupToCreate
 {
-  required string Name = 1;
+  optional string Name = 1;
   optional DepartmentsInGroup Departments = 2;
 }

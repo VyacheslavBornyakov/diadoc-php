@@ -12,6 +12,6 @@ message  CounteragentGroupToUpdate
 
 message CounteragentGroupDepartmentPatch
 {
-  required bool AnyDepartment = 1;
+  optional bool AnyDepartment = 1;
   optional DepartmentsInGroup Departments = 2;
 }

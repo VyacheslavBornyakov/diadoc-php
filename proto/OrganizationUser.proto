@@ -5,13 +5,13 @@ package Diadoc.Api.Proto;
 option java_outer_classname = "OrganizationUserProtos";
 
 message OrganizationUser {
-	required string Id = 1;
-	required string Name = 2; // ФИО сотрудника
-	required OrganizationUserPermissions Permissions = 3;
-        required string Position = 4;
+	optional string Id = 1;
+	optional string Name = 2; // ФИО сотрудника
+	optional OrganizationUserPermissions Permissions = 3;
+        optional string Position = 4;
 }
 
 message OrganizationUsersList {
 	repeated OrganizationUser Users = 1;
-	required string CurrentUserId = 2;
+	optional string CurrentUserId = 2;
 }

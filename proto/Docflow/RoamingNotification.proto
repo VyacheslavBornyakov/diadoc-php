@@ -6,6 +6,6 @@ option java_outer_classname = "RoamingNotificationProtos";
 
 message RoamingNotification
 {
-	required Entity Notification = 1;
-	required bool IsSuccess = 2;
+	optional Entity Notification = 1;
+	optional bool IsSuccess = 2;
 }

@@ -4,6 +4,6 @@ option java_outer_classname = "RoutingProtos";
 
 message Routing
 {
-	required bool Kpp = 1;
-	required bool Address = 2;
+	optional bool Kpp = 1;
+	optional bool Address = 2;
 }

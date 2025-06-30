@@ -9,7 +9,7 @@ message StringValue {
 }
 
 message OrganizationPropertiesToUpdate {
-	required string OrgId = 1;
+	optional string OrgId = 1;
 	optional StringValue Ogrn = 2;
 	optional StringValue IfnsCode = 3;
 	optional Address Address = 4;

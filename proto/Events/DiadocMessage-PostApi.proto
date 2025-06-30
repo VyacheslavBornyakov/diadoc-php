@@ -21,7 +21,7 @@ package Diadoc.Api.Proto.Events;
 option java_outer_classname = "DiadocMessage_PostApiProtos";
 
 message MessageToPost {
-	required string FromBoxId = 1;
+	optional string FromBoxId = 1;
 	optional string ToBoxId = 2;
 	repeated XmlDocumentAttachment Invoices = 3;
 	repeated NonformalizedAttachment NonformalizedDocuments = 4;
@@ -58,38 +58,38 @@ message MessageToPost {
 }
 
 message EncryptedXmlDocumentAttachment {
-	required SignedContent SignedContent = 1;
+	optional SignedContent SignedContent = 1;
 	optional string Comment = 3;
 	repeated DocumentId InitialDocumentIds = 4;
 	repeated DocumentId SubordinateDocumentIds = 5;
 	optional string CustomDocumentId = 6;
 	repeated CustomDataItem CustomData = 7;
-	required EncryptedDocumentMetadata Metadata = 8;
-	required EncryptedXmlBasicDocumentMetadata XmlBasicMetadata = 9;
+	optional EncryptedDocumentMetadata Metadata = 8;
+	optional EncryptedXmlBasicDocumentMetadata XmlBasicMetadata = 9;
 }
 
 message EncryptedInvoiceAttachment {
-	required SignedContent SignedContent = 1;
+	optional SignedContent SignedContent = 1;
 	optional string Comment = 3;
 	repeated DocumentId InitialDocumentIds = 4;
 	repeated DocumentId SubordinateDocumentIds = 5;
 	optional string CustomDocumentId = 6;
 	repeated CustomDataItem CustomData = 7;
-	required EncryptedDocumentMetadata Metadata = 8;
+	optional EncryptedDocumentMetadata Metadata = 8;
 	optional EncryptedInvoiceMetadata InvoiceMetadata = 9;
 	optional EncryptedInvoiceCorrectionMetadata InvoiceCorrectionMetadata = 10;
 }
 
 message EncryptedDocumentMetadata {
-	required string FileId = 1;
-	required string BuyerFnsParticipantId = 2;
-	required string SenderFnsParticipantId = 3;
-	required Docflow.DocumentDateAndNumber DocumentDateAndNumber = 4;
+	optional string FileId = 1;
+	optional string BuyerFnsParticipantId = 2;
+	optional string SenderFnsParticipantId = 3;
+	optional Docflow.DocumentDateAndNumber DocumentDateAndNumber = 4;
 }
 
 message EncryptedXmlBasicDocumentMetadata {
-	required string FormationDate = 1;
-	required string FormationTime = 2;
+	optional string FormationDate = 1;
+	optional string FormationTime = 2;
 	optional string DocumentName = 3;
 }
 
@@ -98,13 +98,13 @@ message EncryptedInvoiceMetadata {
 }
 
 message EncryptedInvoiceCorrectionMetadata {
-	required Docflow.DocumentDateAndNumber OriginalInvoiceDateAndNumber = 1;
+	optional Docflow.DocumentDateAndNumber OriginalInvoiceDateAndNumber = 1;
 	optional Docflow.DocumentDateAndNumber OriginalInvoiceRevisionDateAndNumber = 2;
 	optional Docflow.DocumentDateAndNumber InvoiceCorrectionRevisionDateAndNumber = 3;
 }
 
 message XmlDocumentAttachment {
-	required SignedContent SignedContent = 1;
+	optional SignedContent SignedContent = 1;
 	optional string Comment = 3;
 	repeated DocumentId InitialDocumentIds = 4;
 	repeated DocumentId SubordinateDocumentIds = 5;
@@ -114,8 +114,8 @@ message XmlDocumentAttachment {
 }
 
 message NonformalizedAttachment {
-	required SignedContent SignedContent = 1;
-	required string FileName = 2;
+	optional SignedContent SignedContent = 1;
+	optional string FileName = 2;
 	optional string Comment = 3;
 	optional bool NeedRecipientSignature = 4 [default = false];
 	repeated DocumentId InitialDocumentIds = 5;
@@ -128,14 +128,14 @@ message NonformalizedAttachment {
 }
 
 message BasicDocumentAttachment {
-	required SignedContent SignedContent = 1;
-	required string FileName = 2;
+	optional SignedContent SignedContent = 1;
+	optional string FileName = 2;
 	optional string Comment = 3;
 	repeated DocumentId InitialDocumentIds = 4;
 	repeated DocumentId SubordinateDocumentIds = 5;
-	required string DocumentDate = 6;
-	required string DocumentNumber = 7;
-	required string Total = 8;
+	optional string DocumentDate = 6;
+	optional string DocumentNumber = 7;
+	optional string Total = 8;
 	optional string CustomDocumentId = 9;
 	optional string Vat = 10;
 	optional string Grounds = 11;
@@ -144,14 +144,14 @@ message BasicDocumentAttachment {
 }
 
 message Torg13Attachment {
-	required SignedContent SignedContent = 1;
-	required string FileName = 2;
+	optional SignedContent SignedContent = 1;
+	optional string FileName = 2;
 	optional string Comment = 3;
 	repeated DocumentId InitialDocumentIds = 4;
 	repeated DocumentId SubordinateDocumentIds = 5;
-	required string DocumentDate = 6;
-	required string DocumentNumber = 7;
-	required string Total = 8;
+	optional string DocumentDate = 6;
+	optional string DocumentNumber = 7;
+	optional string Total = 8;
 	optional string CustomDocumentId = 9;
 	// reserved 10 for Vat
 	optional string Grounds = 11;
@@ -160,14 +160,14 @@ message Torg13Attachment {
 }
 
 message AcceptanceCertificateAttachment {
-	required SignedContent SignedContent = 1;
-	required string FileName = 2;
+	optional SignedContent SignedContent = 1;
+	optional string FileName = 2;
 	optional string Comment = 3;
 	repeated DocumentId InitialDocumentIds = 4;
 	repeated DocumentId SubordinateDocumentIds = 5;
-	required string DocumentDate = 6;
+	optional string DocumentDate = 6;
 	optional string DocumentNumber = 7 [default=""];
-	required string Total = 8;
+	optional string Total = 8;
 	optional string CustomDocumentId = 9;
 	optional string Vat = 10;
 	optional string Grounds = 11;
@@ -177,43 +177,43 @@ message AcceptanceCertificateAttachment {
 }
 
 message TrustConnectionRequestAttachment {
-	required SignedContent SignedContent = 1;
-	required string FileName = 2;
+	optional SignedContent SignedContent = 1;
+	optional string FileName = 2;
 	optional string Comment = 3;
 	optional string CustomDocumentId = 4;
 	repeated CustomDataItem CustomData = 5;
 }
 
 message StructuredDataAttachment {
-	required bytes Content = 1;
-	required string FileName = 2;
-	required string ParentCustomDocumentId = 3;
+	optional bytes Content = 1;
+	optional string FileName = 2;
+	optional string ParentCustomDocumentId = 3;
 }
 
 message PriceListAttachment {
-	required SignedContent SignedContent = 1;
-	required string FileName = 2;
+	optional SignedContent SignedContent = 1;
+	optional string FileName = 2;
 	optional string Comment = 3;
 	repeated DocumentId InitialDocumentIds = 4;
 	repeated DocumentId SubordinateDocumentIds = 5;
 	optional string CustomDocumentId = 6;
-	required string DocumentDate = 7;
-	required string DocumentNumber = 8;
-	required string PriceListEffectiveDate = 9;
-	required string ContractDocumentDate = 10;
-	required string ContractDocumentNumber = 11;
+	optional string DocumentDate = 7;
+	optional string DocumentNumber = 8;
+	optional string PriceListEffectiveDate = 9;
+	optional string ContractDocumentDate = 10;
+	optional string ContractDocumentNumber = 11;
 	optional bool NeedReceipt = 12 [default = false];
 	repeated CustomDataItem CustomData = 13;
 }
 
 message ReconciliationActAttachment {
-	required SignedContent SignedContent = 1;
-	required string FileName = 2;
+	optional SignedContent SignedContent = 1;
+	optional string FileName = 2;
 	optional string Comment = 3;
 	// reserved 4 for NeedRecipientSignature
 	repeated DocumentId InitialDocumentIds = 5;
 	repeated DocumentId SubordinateDocumentIds = 6;
-	required string DocumentDate = 7;
+	optional string DocumentDate = 7;
 	optional string DocumentNumber = 8 [default = ""];
 	optional string CustomDocumentId = 9;
 	optional bool NeedReceipt = 10 [default = false];
@@ -221,14 +221,14 @@ message ReconciliationActAttachment {
 }
 
 message ContractAttachment {
-	required SignedContent SignedContent = 1;
-	required string FileName = 2;
+	optional SignedContent SignedContent = 1;
+	optional string FileName = 2;
 	optional string Comment = 3;
 	repeated DocumentId InitialDocumentIds = 4;
 	repeated DocumentId SubordinateDocumentIds = 5;
 	optional string CustomDocumentId = 6;
-	required string DocumentDate = 7;
-	required string DocumentNumber = 8;
+	optional string DocumentDate = 7;
+	optional string DocumentNumber = 8;
 	optional string ContractPrice = 9;
 	optional string ContractType = 10;
 	optional bool NeedReceipt = 11 [default = false];
@@ -236,25 +236,25 @@ message ContractAttachment {
 }
 
 message SupplementaryAgreementAttachment {
-	required SignedContent SignedContent = 1;
-	required string FileName = 2;
+	optional SignedContent SignedContent = 1;
+	optional string FileName = 2;
 	optional string Comment = 3;
 	repeated DocumentId InitialDocumentIds = 4;
 	repeated DocumentId SubordinateDocumentIds = 5;
 	optional string CustomDocumentId = 6;
-	required string DocumentDate = 7;
-	required string DocumentNumber = 8;
+	optional string DocumentDate = 7;
+	optional string DocumentNumber = 8;
 	optional string Total = 9;
-	required string ContractNumber = 10;
-	required string ContractDate = 11;
+	optional string ContractNumber = 10;
+	optional string ContractDate = 11;
 	optional string ContractType = 12;
 	optional bool NeedReceipt = 13 [default = false];
 	repeated CustomDataItem CustomData = 14;
 }
 
 message ServiceDetailsAttachment {
-	required SignedContent SignedContent = 1;
-	required string FileName = 2;
+	optional SignedContent SignedContent = 1;
+	optional string FileName = 2;
 	optional string Comment = 3;
 	// reserved 4 for NeedRecipientSignature
 	repeated DocumentId InitialDocumentIds = 5;
@@ -267,7 +267,7 @@ message ServiceDetailsAttachment {
 }
 
 message DocumentAttachment {
-	required SignedContent SignedContent = 1;
+	optional SignedContent SignedContent = 1;
 	// reserved 2 for FileName
 	optional string Comment = 3;
 	optional bool NeedRecipientSignature = 4 [default = false];
@@ -278,7 +278,7 @@ message DocumentAttachment {
 	optional string CustomDocumentId = 9;
 	optional bool NeedReceipt = 10 [default = false];
 	repeated CustomDataItem CustomData = 11;
-	required string TypeNamedId = 12;
+	optional string TypeNamedId = 12;
 	optional string Function = 13;
 	optional string Version = 14;
 	repeated MetadataItem Metadata = 15;
@@ -288,13 +288,13 @@ message DocumentAttachment {
 }
 
 message MetadataItem {
-	required string Key = 1;
-	required string Value = 2;
+	optional string Key = 1;
+	optional string Value = 2;
 }
 
 message MessagePatchToPost {
-	required string BoxId = 1;
-	required string MessageId = 2;
+	optional string BoxId = 1;
+	optional string MessageId = 2;
 	repeated ReceiptAttachment Receipts = 3;
 	repeated CorrectionRequestAttachment CorrectionRequests = 4;
 	repeated DocumentSignature Signatures = 5;
@@ -319,21 +319,21 @@ message MessagePatchToPost {
 }
 
 message EditingPatch {
-	required string ParentEntityId = 1;
-	required UnsignedContent Content = 2;
+	optional string ParentEntityId = 1;
+	optional UnsignedContent Content = 2;
 	repeated string Labels = 3;
 }
 
 message SignatureVerification {
-	required string InitialDocumentId = 1;
-	required bool IsValid = 2;
+	optional string InitialDocumentId = 1;
+	optional bool IsValid = 2;
 	optional string ErrorMessage = 3;
 	repeated string Labels = 4;
 }
 
 message ResolutionRequestAttachment {
-	required string InitialDocumentId = 1;
-	required ResolutionRequestType Type = 2;
+	optional string InitialDocumentId = 1;
+	optional ResolutionRequestType Type = 2;
 	optional string TargetUserId = 3;
 	optional string TargetDepartmentId = 4;
 	optional string Comment = 5;
@@ -342,58 +342,58 @@ message ResolutionRequestAttachment {
 
 message ResolutionRouteAssignment
 {
-	required string InitialDocumentId = 1;
-	required string RouteId = 2;
+	optional string InitialDocumentId = 1;
+	optional string RouteId = 2;
 	optional string Comment = 3;
 	repeated string Labels = 4;
 }
 
 message ResolutionRequestCancellationAttachment {
-	required string InitialResolutionRequestId = 1;
+	optional string InitialResolutionRequestId = 1;
 	optional string Comment = 2;
 	repeated string Labels = 3;
 }
 
 message ResolutionRequestDenialCancellationAttachment {
-	required string InitialResolutionRequestDenialId = 1;
+	optional string InitialResolutionRequestDenialId = 1;
 }
 
 message ResolutionRequestDenialAttachment {
-	required string InitialResolutionRequestId = 1;
+	optional string InitialResolutionRequestId = 1;
 	optional string Comment = 2;
 	repeated string Labels = 3;
 }
 
 message ResolutionAttachment {
-	required string InitialDocumentId = 1;
-	required ResolutionType ResolutionType = 2;
+	optional string InitialDocumentId = 1;
+	optional ResolutionType ResolutionType = 2;
 	optional string Comment = 3;
 	repeated string Labels = 4;
 }
 
 message ReceiptAttachment {
-	required string ParentEntityId = 1;
-	required SignedContent SignedContent = 2;
+	optional string ParentEntityId = 1;
+	optional SignedContent SignedContent = 2;
 	// do not use field #3
 	repeated string Labels = 4;
 }
 
 message RecipientTitleAttachment {
-	required string ParentEntityId = 1;
-	required SignedContent SignedContent = 2;
+	optional string ParentEntityId = 1;
+	optional SignedContent SignedContent = 2;
 	repeated string Labels = 4;
-	required bool NeedReceipt = 5 [default = false];
+	optional bool NeedReceipt = 5 [default = false];
 }
 
 message CorrectionRequestAttachment {
-	required string ParentEntityId = 1;
-	required SignedContent SignedContent = 2;
+	optional string ParentEntityId = 1;
+	optional SignedContent SignedContent = 2;
 	// do not use field #3
 	repeated string Labels = 4;
 }
 
 message DocumentSignature {
-	required string ParentEntityId = 1;
+	optional string ParentEntityId = 1;
 	optional bytes Signature = 2;
 	optional bool SignWithTestSignature = 4 [default = false];
 	optional bool IsApprovementSignature = 5 [default = false];
@@ -404,7 +404,7 @@ message DocumentSignature {
 }
 
 message DocumentSenderSignature {
-	required string ParentEntityId = 1;
+	optional string ParentEntityId = 1;
 	optional bytes Signature = 2;
 	optional bool SignWithTestSignature = 4 [default = false];
 	optional string PatchedContentId = 5;
@@ -412,8 +412,8 @@ message DocumentSenderSignature {
 }
 
 message RequestedSignatureRejection {
-	required string ParentEntityId = 1;
-	required SignedContent SignedContent = 2;
+	optional string ParentEntityId = 1;
+	optional SignedContent SignedContent = 2;
 	repeated string Labels = 3;
 }
 
@@ -427,8 +427,8 @@ message SignedContent {
 }
 
 message DraftToSend {
-	required string BoxId = 1;
-	required string DraftId = 2;
+	optional string BoxId = 1;
+	optional string DraftId = 2;
 	optional string ToBoxId = 3;
 	optional string ToDepartmentId = 4;
 	repeated DocumentSenderSignature DocumentSignatures = 5;
@@ -437,14 +437,14 @@ message DraftToSend {
 }
 
 message PrepareDocumentsToSignRequest {
-	required string BoxId = 1;
+	optional string BoxId = 1;
 	repeated DraftDocumentToPatch DraftDocuments = 2;
 	repeated DocumentToPatch Documents = 3;
 	repeated ContentToPatch Contents = 4;
 }
 
 message DraftDocumentToPatch {
-	required DocumentId DocumentId = 1;
+	optional DocumentId DocumentId = 1;
 	optional string ToBoxId = 2;
 	optional Invoicing.Signer Signer = 3;
 	repeated Invoicing.Signers.ExtendedSigner ExtendedSigner = 4;
@@ -452,10 +452,10 @@ message DraftDocumentToPatch {
 }
 
 message ContentToPatch {
-	required string TypeNamedId = 1;
-	required string Function = 2;
-	required string Version = 3;
-	required UnsignedContent Content = 4;
+	optional string TypeNamedId = 1;
+	optional string Function = 2;
+	optional string Version = 3;
+	optional UnsignedContent Content = 4;
 	optional string ToBoxId = 5;
 	optional Invoicing.Signer Signer = 6;
 	repeated Invoicing.Signers.ExtendedSigner ExtendedSigner = 7;
@@ -463,15 +463,15 @@ message ContentToPatch {
 }
 
 message DocumentToPatch {
-	required DocumentId DocumentId = 1;
+	optional DocumentId DocumentId = 1;
 	optional Invoicing.Signer Signer = 2;
 	repeated Invoicing.Signers.ExtendedSigner ExtendedSigner = 3;
 	optional bytes SignerContent = 4;
 }
 
 message DocumentPatchedContent {
-	required DocumentId DocumentId = 1;
-	required string PatchedContentId = 2;
+	optional DocumentId DocumentId = 1;
+	optional string PatchedContentId = 2;
 	optional bytes Content = 3;
 }
 
@@ -480,27 +480,27 @@ message PrepareDocumentsToSignResponse {
 }
 
 message MessageToSend {
-	required string BoxId = 1;
-	required string MessageId = 2;
+	optional string BoxId = 1;
+	optional string MessageId = 2;
 	repeated DocumentSignature DocumentSignatures = 3;
 }
 
 message RevocationRequestAttachment {
-	required string ParentEntityId = 1;
-	required SignedContent SignedContent = 2;
+	optional string ParentEntityId = 1;
+	optional SignedContent SignedContent = 2;
 	repeated string Labels = 3;
 }
 
 message XmlSignatureRejectionAttachment {
-	required string ParentEntityId = 1;
-	required SignedContent SignedContent = 2;
+	optional string ParentEntityId = 1;
+	optional SignedContent SignedContent = 2;
 	repeated string Labels = 3;
 }
 
 message RoamingNotificationToPost {
-	required string BoxId = 1;
-	required string EventId = 2;
-	required bool Success = 3;
+	optional string BoxId = 1;
+	optional string EventId = 2;
+	optional bool Success = 3;
 	optional string Description = 4;
 	optional string MessageId = 5;
 	repeated string NotifiableEntityIds = 6;
@@ -512,30 +512,30 @@ enum CustomDataPatchOperation {
 }
 
 message CustomDataPatch {
-	required string ParentEntityId = 1;
-	required CustomDataPatchOperation Operation = 2;
-	required string Key = 3;
+	optional string ParentEntityId = 1;
+	optional CustomDataPatchOperation Operation = 2;
+	optional string Key = 3;
 	optional string Value = 4;
 }
 
 message EditDocumentPacketCommand {
-	required string DocumentId = 1;
+	optional string DocumentId = 1;
 	repeated DocumentId AddDocumentsToPacket = 2;
 	repeated DocumentId RemoveDocumentsFromPacket = 3;
 }
 
 message ResolutionRouteRemoval {
-	required string ParentEntityId = 1; // EntityId документа, который нужно снять с маршрута согласования
-	required string RouteId = 2; // Идентификатор маршрута, с которого нужно снять документ
+	optional string ParentEntityId = 1; // EntityId документа, который нужно снять с маршрута согласования
+	optional string RouteId = 2; // Идентификатор маршрута, с которого нужно снять документ
 	optional string Comment = 3 [default = ""]; // Текстовый комментарий, ограничение - 256 символов
 	repeated string Labels = 4;
 }
 
 message TemplateToPost {
-	required string FromBoxId = 1;
-	required string ToBoxId = 2;
-	required string MessageFromBoxId = 3;
-	required string MessageToBoxId = 4;
+	optional string FromBoxId = 1;
+	optional string ToBoxId = 2;
+	optional string MessageFromBoxId = 3;
+	optional string MessageToBoxId = 4;
 	optional string MessageToDepartmentId = 5;
 	repeated TemplateDocumentAttachment DocumentAttachments = 6;
 	optional LockMode LockMode = 7 [default = None];
@@ -547,9 +547,9 @@ message TemplateToPost {
 }
 
 message TemplateDocumentAttachment {
-	required UnsignedContent UnsignedContent = 1;
+	optional UnsignedContent UnsignedContent = 1;
 	optional string Comment = 2;
-	required string TypeNamedId = 3;
+	optional string TypeNamedId = 3;
 	optional string Function = 4;
 	optional string Version = 5;
 	repeated MetadataItem Metadata = 6;
@@ -567,13 +567,13 @@ message TemplatePatchToPost {
 }
 
 message TemplateRefusalAttachment {
-	required string DocumentId = 1;
+	optional string DocumentId = 1;
 	optional string Comment = 2;
 	repeated string Labels = 3;
 }
 
 message PredefinedRecipientTitle {
-	required UnsignedContent UnsignedContent = 1;
+	optional UnsignedContent UnsignedContent = 1;
 }
 
 message UnsignedContent {
@@ -582,12 +582,12 @@ message UnsignedContent {
 }
 
 message TemplateTransformationToPost {
-	required string BoxId = 1;
-	required string TemplateId = 2;
+	optional string BoxId = 1;
+	optional string TemplateId = 2;
 	repeated DocumentTransformation DocumentTransformations = 3;
 }
 
 message DocumentTransformation {
-	required string DocumentId = 1;
+	optional string DocumentId = 1;
 	optional string CustomDocumentId = 2;
 }

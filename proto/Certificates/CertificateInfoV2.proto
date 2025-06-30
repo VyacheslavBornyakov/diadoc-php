@@ -3,8 +3,8 @@ package Diadoc.Api.Proto.Certificates;
 option java_outer_classname = "CertificateInfoV2Protos";
 
 message CertificateInfoV2 {
-	required string Thumbprint = 1;
-	required CertificateType Type = 2;
+	optional string Thumbprint = 1;
+	optional CertificateType Type = 2;
 	optional sfixed64 ValidFrom = 3;
 	optional sfixed64 ValidTo = 4;
 	optional sfixed64 PrivateKeyValidFrom = 5;

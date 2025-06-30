@@ -10,7 +10,7 @@ message Address {
 
 message RussianAddress {
 	optional string ZipCode = 1;			// индекс
-	required string Region = 2;				// регион (код)
+	optional string Region = 2;				// регион (код)
 	optional string Territory = 3;			// район
 	optional string City = 4;				// город
 	optional string Locality = 5;			// населенный пункт
@@ -22,6 +22,6 @@ message RussianAddress {
 }
 
 message ForeignAddress {
-	required string Country = 1;	// страна (код)
-	required string Address = 2;	// текст адреса
+	optional string Country = 1;	// страна (код)
+	optional string Address = 2;	// текст адреса
 }

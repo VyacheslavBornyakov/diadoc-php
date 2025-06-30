@@ -9,9 +9,9 @@ message DetectTitleResponse {
 }
 
 message DetectedDocumentTitle {
-	required string TypeNamedId = 1;
-	required string Function = 2;
-	required string Version = 3;
-	required int32 TitleIndex = 4;
+	optional string TypeNamedId = 1;
+	optional string Function = 2;
+	optional string Version = 3;
+	optional int32 TitleIndex = 4;
 	repeated Events.MetadataItem Metadata = 5;
 }

@@ -8,22 +8,22 @@ option java_outer_classname = "AcceptanceCertificateInfoProtos";
 
 // Со стороны исполнителя
 message AcceptanceCertificateSellerTitleInfo {
-	required DiadocOrganizationInfo Seller = 1;								// исполнитель (продавец услуг)
-	required DocflowParticipant Buyer = 2;									// заказчик (покупатель услуг)
-	required string DocumentDate = 3;										// дата составления акта о выполнении
+	optional DiadocOrganizationInfo Seller = 1;								// исполнитель (продавец услуг)
+	optional DocflowParticipant Buyer = 2;									// заказчик (покупатель услуг)
+	optional string DocumentDate = 3;										// дата составления акта о выполнении
 	optional string DocumentNumber = 4;										// номер акта
-	required string DocumentTitle = 5;										// заголовок документа
+	optional string DocumentTitle = 5;										// заголовок документа
 	repeated WorkDescription Works = 6;										// описание выполненных работ
-	required AcceptanceCertificateSignatureInfo Signature = 7;				// сведения о подписи акта
-	required Signer Signer = 8;												// подписант
+	optional AcceptanceCertificateSignatureInfo Signature = 7;				// сведения о подписи акта
+	optional Signer Signer = 8;												// подписант
 	optional string AdditionalInfo = 9;										// дополнительная информация
 }
 
 // Со стороны заказчика
 message AcceptanceCertificateBuyerTitleInfo {
 	optional string Complaints = 1;											// претензии
-	required AcceptanceCertificateSignatureInfo Signature = 2;				// сведения о подписи акта
-	required Signer Signer = 3;												// подписант
+	optional AcceptanceCertificateSignatureInfo Signature = 2;				// сведения о подписи акта
+	optional Signer Signer = 3;												// подписант
 	optional string AdditionalInfo = 4;										// дополнительная информация
 }
 
@@ -39,7 +39,7 @@ message WorkDescription {
 	optional string CompletionDate = 2;										// окончание периода выполнения работ
 	optional string TotalWithVatExcluded = 3;								// сумма без учета НДС - итого
 	optional string Vat = 4;												// сумма НДС - итого
-	required string Total = 5;												// сумма с учетом НДС - итого
+	optional string Total = 5;												// сумма с учетом НДС - итого
 	repeated WorkItem Items = 6;											// сведения о произведенной работе
 }
 

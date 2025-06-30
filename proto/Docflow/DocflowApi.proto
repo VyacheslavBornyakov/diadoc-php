@@ -19,7 +19,7 @@ message GetDocflowBatchRequest
 
 message GetDocflowRequest
 {
-	required DocumentId DocumentId = 1;
+	optional DocumentId DocumentId = 1;
 	optional string LastEventId = 2;
 	optional bool InjectEntityContent = 3 [default = false];
 }
@@ -40,7 +40,7 @@ enum SearchScope
 
 message SearchDocflowsRequest
 {
-	required string QueryString = 1;
+	optional string QueryString = 1;
 	optional int32 Count = 2 [default = 100];
 	optional int32 FirstIndex = 3;
 	optional SearchScope Scope = 4 [default = SearchScopeAny];
@@ -55,7 +55,7 @@ message SearchDocflowsResponse
 
 message GetDocflowsByPacketIdRequest
 {
-	required string PacketId = 1;
+	optional string PacketId = 1;
 	optional int32 Count = 2 [default = 100];
 	optional bool InjectEntityContent = 3 [default = false];
 	optional bytes AfterIndexKey = 4;
@@ -63,8 +63,8 @@ message GetDocflowsByPacketIdRequest
 
 message FetchedDocument
 {
-	required DocumentWithDocflow Document = 1;
-	required bytes IndexKey = 2;
+	optional DocumentWithDocflow Document = 1;
+	optional bytes IndexKey = 2;
 }
 
 message GetDocflowsByPacketIdResponse
@@ -75,7 +75,7 @@ message GetDocflowsByPacketIdResponse
 
 message GetDocflowEventsRequest
 {
-	required TimeBasedFilter Filter = 1;
+	optional TimeBasedFilter Filter = 1;
 	optional bytes AfterIndexKey = 2;
 	optional bool PopulateDocuments = 3 [default = false];
 	optional bool InjectEntityContent = 4 [default = false];
@@ -92,7 +92,7 @@ message GetDocflowEventsResponse
 {
 	optional int32 TotalCount = 1;
 	repeated DocflowEvent Events = 2;
-	required TotalCountType TotalCountType = 3;
+	optional TotalCountType TotalCountType = 3;
 }
 
 message DocflowEvent

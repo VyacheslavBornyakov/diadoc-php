@@ -12,6 +12,6 @@ message SubscriptionsToUpdate {
 
 message Subscription
 {
-	required string Id = 1;
-	required bool IsSubscribed = 2;
+	optional string Id = 1;
+	optional bool IsSubscribed = 2;
 }

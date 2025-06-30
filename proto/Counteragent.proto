@@ -7,16 +7,16 @@ package Diadoc.Api.Proto;
 option java_outer_classname = "CounteragentProtos";
 
 message CounteragentList {
-	required int32 TotalCount = 1;
+	optional int32 TotalCount = 1;
 	repeated Counteragent Counteragents = 2;
-	required TotalCountType TotalCountType = 3;
+	optional TotalCountType TotalCountType = 3;
 }
 
 message Counteragent {
 	optional string IndexKey = 1;
-	required Organization Organization = 2;
+	optional Organization Organization = 2;
 	optional CounteragentStatus CurrentStatus = 3 [default = UnknownCounteragentStatus];
-	required sfixed64 LastEventTimestampTicks = 4;
+	optional sfixed64 LastEventTimestampTicks = 4;
 	optional string MessageFromCounteragent = 6;
 	optional string MessageToCounteragent = 7;
 	optional DocumentId InvitationDocumentId = 8;
@@ -38,5 +38,5 @@ message CounteragentCertificateList {
 }
 
 message Certificate {
-	required bytes RawCertificateData = 1;
+	optional bytes RawCertificateData = 1;
 }

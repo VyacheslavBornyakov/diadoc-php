@@ -4,5 +4,5 @@ option java_outer_classname = "TimestampProtos";
 
 message Timestamp
 {
-	required sfixed64 Ticks = 1;
+	optional sfixed64 Ticks = 1;
 }

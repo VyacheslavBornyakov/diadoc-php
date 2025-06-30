@@ -16,7 +16,7 @@ message CustomPrintFormDetectionResult
 
 message CustomPrintFormDetectionItemResult
 {
-    required DocumentId DocumentId = 1;
-    required bool HasCustomPrintForm = 2;
+    optional DocumentId DocumentId = 1;
+    optional bool HasCustomPrintForm = 2;
 }
 

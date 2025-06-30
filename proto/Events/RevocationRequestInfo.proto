@@ -3,5 +3,5 @@ package Diadoc.Api.Proto.Events;
 option java_outer_classname = "RevocationRequestInfoProtos";
 
 message RevocationRequestInfo {
-    required string InitiatorBoxId = 1;
+    optional string InitiatorBoxId = 1;
 }

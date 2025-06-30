@@ -6,12 +6,12 @@ option java_outer_classname = "CounteragentGroupProtos";
 
 message CounteragentGroup
 {
-  required string CounteragentGroupId = 1;
-  required string Name = 2;
+  optional string CounteragentGroupId = 1;
+  optional string Name = 2;
   optional DepartmentsInGroup Departments = 3;
 }
 
 message CounteragentGroupsList {
   repeated CounteragentGroup Groups = 1;
-  required int32 TotalCount = 2;
+  optional int32 TotalCount = 2;
 }

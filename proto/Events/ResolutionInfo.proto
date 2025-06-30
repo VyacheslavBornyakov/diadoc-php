@@ -6,6 +6,6 @@ option java_outer_classname = "ResolutionInfoProtos";
 
 message ResolutionInfo {
 	optional ResolutionType ResolutionType = 1 [default = UnknownResolutionType];
-	required string Author = 2;	// ФИО согласователя
+	optional string Author = 2;	// ФИО согласователя
 	optional string InitialRequestId = 3;
 }

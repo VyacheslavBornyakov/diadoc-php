@@ -6,7 +6,7 @@ option java_outer_classname = "AcceptanceCertificateDocumentProtos";
 
 message AcceptanceCertificateMetadata {
 	optional AcceptanceCertificateDocumentStatus DocumentStatus = 1 [default = UnknownAcceptanceCertificateDocumentStatus];
-	required string Total = 2;
+	optional string Total = 2;
 	optional string Vat = 3;
 	optional string Grounds = 4;
 	optional ReceiptStatus ReceiptStatus = 5 [default = UnknownReceiptStatus];

@@ -7,25 +7,25 @@ package Diadoc.Api.Proto.Invoicing;
 option java_outer_classname = "UniversalTransferDocumentInfoProtos";
 
 message UniversalTransferDocumentSellerTitleInfo {
-	required FunctionType Function = 1;  // Функция документа // Функция
+	optional FunctionType Function = 1;  // Функция документа // Функция
 	optional string DocumentName = 2;    // Наименование первичного документа, определенное организацией // НаимДокОпр
-	required string DocumentDate  = 3;   // дата УПД // ДатаСчФ
-	required string DocumentNumber  = 4; // номер УПД // НомерСчФ
+	optional string DocumentDate  = 3;   // дата УПД // ДатаСчФ
+	optional string DocumentNumber  = 4; // номер УПД // НомерСчФ
 
-	required Organizations.ExtendedOrganizationInfo Seller = 5;    // продавец // СвПрод
-	required Organizations.ExtendedOrganizationInfo Buyer = 6;     // покупатель //СвПокуп
+	optional Organizations.ExtendedOrganizationInfo Seller = 5;    // продавец // СвПрод
+	optional Organizations.ExtendedOrganizationInfo Buyer = 6;     // покупатель //СвПокуп
 	optional Shipper Shipper = 7;                                  // грузоотправитель //ГрузОт
 	optional Organizations.ExtendedOrganizationInfo Consignee = 8; // грузополучатель //ГрузПолуч
 	repeated Signers.ExtendedSigner Signers = 9;        // подписант // Подписант
 	repeated PaymentDocumentInfo PaymentDocuments = 10; // платежно-расчетные документы // СвПРД
 	optional InvoiceTable InvoiceTable = 11;            // Сведения таблицы счет фактуры // ТаблСчФакт
-	required string Currency = 12;                      // валюта (код) // КодОКВ
+	optional string Currency = 12;                      // валюта (код) // КодОКВ
 	optional string CurrencyRate = 13;                  // Курс валюты // КурсВал
 	optional string RevisionDate = 14;                  // дата ИСФ (обязательно при формировании UniversalTransferDocumentSellerTitleRevision) // ДатаИспрСчФ
 	optional string RevisionNumber = 15;                // номер ИСФ (обязательно при формировании UniversalTransferDocumentSellerTitleRevision) // НомИспрСчФ
 	optional AdditionalInfoId AdditionalInfoId = 16;    // информационное поле документа // ИнфПолФХЖ1
 	optional TransferInfo TransferInfo = 17;            // Сведения о передаче (сдаче) // СвПер
-	required string DocumentCreator = 18;               // Составитель файла обмена счета-фактуры (информации продавца) // НаимЭконСубСост
+	optional string DocumentCreator = 18;               // Составитель файла обмена счета-фактуры (информации продавца) // НаимЭконСубСост
 	optional string DocumentCreatorBase = 19;           // Основание, по которому экономический субъект является составителем файла обмена счета-фактуры //ОснДоверОргСост
 	optional string GovernmentContractInfo = 20;        // ИдГосКон
 }
@@ -44,22 +44,22 @@ message Shipper {
 message InvoiceTable {
 	repeated ExtendedInvoiceItem Items = 1;   // информация о товарах // СведТов
 	optional string TotalWithVatExcluded = 2; // Сумма без учета налога // СтТовБезНДСВсего
-	required string Vat = 3;                  // Сумма налога // СумНалВсего
-	required string Total = 4;                // Сумма всего // СтТовУчНалВсего
+	optional string Vat = 3;                  // Сумма налога // СумНалВсего
+	optional string Total = 4;                // Сумма всего // СтТовУчНалВсего
 	optional string TotalNet = 5;             // Нетто всего // НеттоВс}
 }
 
 message ExtendedInvoiceItem {
-	required string Product = 1;  // наименование товара // НаимТов
+	optional string Product = 1;  // наименование товара // НаимТов
 	optional string Unit = 2;     // единицы измерения товара (код) // ОКЕИ_Тов
 	optional string UnitName = 3; // наименование единицы измерения товара. Пользователь заполняет, если ОКЕИ_Тов=’0000’               // НаимЕдИзм
 	optional string Quantity = 4; // количество единиц товара // КолТов
 	optional string Price = 5;    // цена за единицу товара // ЦенаТов
 	optional string Excise = 6;   // акциз // СумАкциз
-	required TaxRate TaxRate = 7; // ставка налога // НалСт
+	optional TaxRate TaxRate = 7; // ставка налога // НалСт
 	optional string SubtotalWithVatExcluded = 8; // сумма без учета налога // СтТовБезНДС
 	optional string Vat = 9;       // сумма налога // СумНал
-	required string Subtotal = 10; // сумма всего // СтТовУчНал
+	optional string Subtotal = 10; // сумма всего // СтТовУчНал
 	repeated CustomsDeclaration CustomsDeclarations = 11; // номера таможенных деклараций // СвТД
 	optional ItemMark ItemMark = 12;             // Признак товар-работа-услуга // ПрТовРаб
 	optional string AdditionalProperty = 13;     // Дополнительная информация о признаке //ДопПризн
@@ -80,7 +80,7 @@ enum ItemMark {
 }
 
 message TransferInfo {
-	required string OperationInfo = 1;               // Содержание операции // СодОпер
+	optional string OperationInfo = 1;               // Содержание операции // СодОпер
 	optional string OperationType = 2;               // Вид операции // ВидОпер
 	optional string TransferDate = 3;                // Дата отгрузки // ДатаПер
 	repeated TransferBase TransferBase = 4;          // Основание отгрузки //ОснПер
@@ -95,23 +95,23 @@ message TransferInfo {
 }
 
 message TransferBase {
-	required string BaseDocumentName = 1;   // Наименование документа-основания отгрузки //НаимОсн
+	optional string BaseDocumentName = 1;   // Наименование документа-основания отгрузки //НаимОсн
 	optional string BaseDocumentNumber = 2; // Номер документа-основания отгрузки //НомОсн
 	optional string BaseDocumentDate = 3;   // Дата документа-основания отгрузки //ДатаОсн
 	optional string BaseDocumentInfo = 4;   // Дополнительные сведения документа-основания отгрузки //ДопСвОсн
 }
 
 message  Waybill {
-	required  string TransferDocumentNumber = 1; // Номер транспортной накладной // НомерТранНакл
-	required  string TransferDocumentDate = 2;   // Дата траспортной накладной // ДатаТранНакл
+	optional  string TransferDocumentNumber = 1; // Номер транспортной накладной // НомерТранНакл
+	optional  string TransferDocumentDate = 2;   // Дата траспортной накладной // ДатаТранНакл
 }
 
 message Employee {
-	required string EmployeePosition = 1;   // Должность // Должность
+	optional string EmployeePosition = 1;   // Должность // Должность
 	optional string EmployeeInfo = 2;       // Иные сведения, идентифицирующие физическое лицо // ИныеСвед
 	optional string EmployeeBase = 3;       // Основание полномочий предстваителя // ОснПолн
-	required string TransferSurname = 4;    // Фамилия //Фамилия
-	required string TransferFirstName = 5;  // Имя //Имя
+	optional string TransferSurname = 4;    // Фамилия //Фамилия
+	optional string TransferFirstName = 5;  // Имя //Имя
 	optional string TransferPatronymic = 6; // Отчество //Отчество
 }
 
@@ -121,8 +121,8 @@ message OtherIssuer {
 	optional string TransferOrganizationName = 3; // Наименование организации, которой доверена передача // НаимОргПер
 	optional string TransferOrganizationBase = 4; // Основание, по которому организации доверена передача // ОснДоверОргПер
 	optional string TransferEmployeeBase = 5;     // Основание полномочий предстваителя // ОснПолнПредПер (ОснДоверФЛ)
-	required string TransferSurname = 6;    // Фамилия //Фамилия
-	required string TransferFirstName = 7;  // Имя //Имя
+	optional string TransferSurname = 6;    // Фамилия //Фамилия
+	optional string TransferFirstName = 7;  // Имя //Имя
 	optional string TransferPatronymic = 8; // Отчество //Отчество
 }
 
@@ -132,10 +132,10 @@ message AdditionalInfoId {
 }
 
 message UniversalTransferDocumentBuyerTitleInfo {
-	required string DocumentCreator = 1; // НаимЭконСубСост - Наименование экономического субъекта - составителя файла обмена информации покупателя
+	optional string DocumentCreator = 1; // НаимЭконСубСост - Наименование экономического субъекта - составителя файла обмена информации покупателя
 	optional string DocumentCreatorBase = 2; // ОснДоверОргСост - Основание, по которому экономический субъект является составителем файла обмена информации покупателя
 	optional string OperationCode = 3; // ВидОперации - ВидОперации
-	required string OperationContent = 4; // СодОпер - Содержание операции
+	optional string OperationContent = 4; // СодОпер - Содержание операции
 	optional string AcceptanceDate = 5; // ДатаПрин - Дата принятия товаров (результатов выполненных работ), имущественных прав (подтверждения факта оказания услуг)
 	optional Employee Employee = 6; // РабОргПок - работник организации покупателя
 	optional OtherIssuer OtherIssuer = 7; // ИнЛицо - Иное Лицо
@@ -144,47 +144,47 @@ message UniversalTransferDocumentBuyerTitleInfo {
 }
 
 message UniversalCorrectionDocumentSellerTitleInfo {
-	required FunctionType Function = 1;                          // Функция документа // Функция
+	optional FunctionType Function = 1;                          // Функция документа // Функция
 	optional string DocumentName = 2;                            // Наименование первичного документа, определенное организацией // НаимДокОпр
-	required string DocumentDate  = 3;                           // дата УКД // ДатаКСчФ
-	required string DocumentNumber  = 4;                         // номер УКД // НомерКСчФ
+	optional string DocumentDate  = 3;                           // дата УКД // ДатаКСчФ
+	optional string DocumentNumber  = 4;                         // номер УКД // НомерКСчФ
 	repeated InvoiceForCorrectionInfo Invoices = 5;              // Счет-фактура (первичный документ), к которому составлен корректировочный счет-фактура // СчФ
-	required Organizations.ExtendedOrganizationInfo Seller = 6;  // продавец // СвПрод
-	required Organizations.ExtendedOrganizationInfo Buyer = 7;   // покупатель // СвПокуп
+	optional Organizations.ExtendedOrganizationInfo Seller = 6;  // продавец // СвПрод
+	optional Organizations.ExtendedOrganizationInfo Buyer = 7;   // покупатель // СвПокуп
 	repeated Signers.ExtendedSigner Signers = 8;                 // Подписант // Подписант
-	required EventContent EventContent = 9;                      // Содержание события // СодФХЖ3
-	required InvoiceCorrectionTable InvoiceCorrectionTable = 10; // Сведения таблицы корректировочного счета-фактуры // ТаблКСчФ
-	required string Currency = 11;                               // валюта (код) // КодОКВ
+	optional EventContent EventContent = 9;                      // Содержание события // СодФХЖ3
+	optional InvoiceCorrectionTable InvoiceCorrectionTable = 10; // Сведения таблицы корректировочного счета-фактуры // ТаблКСчФ
+	optional string Currency = 11;                               // валюта (код) // КодОКВ
 	optional string CurrencyRate = 12;                           // Курс валюты // КурсВал
 	optional string CorrectionRevisionDate = 13;                 // ДатаИспрКСчФ, обязателен, если формируется исправление // ДатаИспрКСчФ
 	optional string CorrectionRevisionNumber = 14;               // НомИспрКСчФ, обязателен, если формируется исправление // НомИспрКСчФ
 	optional AdditionalInfoId AdditionalInfoId = 15;             // информационное поле документа // ИнфПолФХЖ1
-	required string DocumentCreator = 16;                        // Наименование экономического субъекта-составителя файла обмена счета-фактуры (информации продавца) // НаимЭконСубСост
+	optional string DocumentCreator = 16;                        // Наименование экономического субъекта-составителя файла обмена счета-фактуры (информации продавца) // НаимЭконСубСост
 	optional string DocumentCreatorBase = 17;                    // Основание, по которому экономический субъект является составителем файла обмена счета-фактуры //ОснДоверОргСост
 	optional string GovernmentContractInfo = 18;                 // Идентификатор государственного контракта // ИдГосКон
 }
 
 message InvoiceForCorrectionInfo {
-	required string InvoiceDate = 1;                             // ДатаСчФ
-	required string InvoiceNumber = 2;                           // НомерСчФ
+	optional string InvoiceDate = 1;                             // ДатаСчФ
+	optional string InvoiceNumber = 2;                           // НомерСчФ
 	repeated InvoiceRevisionInfo InvoiceRevisions = 3;           // С учетом исправления // ИспрСчФ
 }
 
 message InvoiceRevisionInfo {
-	required string InvoiceRevisionDate = 1;                     // ДатаИспрСчФ (заполняется, если КСФ/ИКСФ формируется на исправленный СФ)
-	required string InvoiceRevisionNumber = 2;                   // НомИспрСчФ (заполняется, если КСФ/ИКСФ формируется на исправленный СФ)
+	optional string InvoiceRevisionDate = 1;                     // ДатаИспрСчФ (заполняется, если КСФ/ИКСФ формируется на исправленный СФ)
+	optional string InvoiceRevisionNumber = 2;                   // НомИспрСчФ (заполняется, если КСФ/ИКСФ формируется на исправленный СФ)
 }
 
 message EventContent {
 	optional string CostChangeInfo = 1;                          // Иные сведения об изменении стоимости  // ИныеСвИзмСтоим
 	optional string TransferDocDetails = 2;                      // Реквизиты передаточных документов, к которым относится корректировка // ПередатДокум
-	required string OperationContent = 3;                        // Содержание операции // СодОпер
+	optional string OperationContent = 3;                        // Содержание операции // СодОпер
 	optional string NotificationDate = 4;                        // Дата направления на согласование // ДатаНапр
 	repeated CorrectionBase CorrectionBase = 5;                  // Основание корректировки // ОснКор
 }
 
 message CorrectionBase {
-	required string BaseDocumentName = 1;                        // Наименование документа - основания // НаимОсн
+	optional string BaseDocumentName = 1;                        // Наименование документа - основания // НаимОсн
 	optional string BaseDocumentNumber = 2;                      // Номер документа - основания // НомОсн
 	optional string BaseDocumentDate = 3;                        // Дата документа - основания, обязателен при НаимОсн отличном от значения "Отсутствует" // ДатаОсн
 	optional string AdditionalInfo = 4;                          // Дополнительные сведения // ДопСвОсн
@@ -197,9 +197,9 @@ message InvoiceCorrectionTable {
 }
 
 message ExtendedInvoiceCorrectionItem {
-	required string Product = 1;                                 // наименование товара // НаимТов
-	required CorrectableInvoiceItemFields OriginalValues = 2;    // значения до изменения
-	required CorrectableInvoiceItemFields CorrectedValues = 3;   // значения после изменения
+	optional string Product = 1;                                 // наименование товара // НаимТов
+	optional CorrectableInvoiceItemFields OriginalValues = 2;    // значения до изменения
+	optional CorrectableInvoiceItemFields CorrectedValues = 3;   // значения после изменения
 	optional InvoiceItemAmountsDiff AmountsInc = 4;              // суммы к увеличению
 	optional InvoiceItemAmountsDiff AmountsDec = 5;              // суммы к уменьшению
 	optional string ItemAccountDebit = 6;                        // Корреспондирующие счета: дебет // КорСчДебет

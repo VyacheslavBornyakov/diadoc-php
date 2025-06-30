@@ -11,7 +11,7 @@ message DssSignRequest
 
 message DssSignFile
 {
-	required Content_v3 Content = 1;
+	optional Content_v3 Content = 1;
 	optional string FileName = 2;
 }
 

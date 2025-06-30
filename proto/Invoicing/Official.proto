@@ -4,8 +4,8 @@ option java_outer_classname = "OfficialProtos";
 
 // Должностное лицо
 message Official {
-	required string Surname = 1;
-	required string FirstName = 2;
+	optional string Surname = 1;
+	optional string FirstName = 2;
 	optional string Patronymic = 3;
 	optional string JobTitle = 4;
 }

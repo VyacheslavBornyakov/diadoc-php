@@ -6,7 +6,7 @@ option java_outer_classname = "UnilateralDocumentProtos";
 
 message ProformaInvoiceMetadata {
 	optional UnilateralDocumentStatus DocumentStatus = 1 [default = UnknownUnilateralDocumentStatus];
-	required string Total = 2;
+	optional string Total = 2;
 	optional string Vat = 3;
 	optional string Grounds = 4;
 	optional ReceiptStatus ReceiptStatus = 5 [default = UnknownReceiptStatus];
@@ -14,8 +14,8 @@ message ProformaInvoiceMetadata {
 
 
 message ServiceDetailsMetadata {
-	required UnilateralDocumentStatus DocumentStatus = 1 [default = UnknownUnilateralDocumentStatus];
-	required ReceiptStatus ReceiptStatus = 2 [default = UnknownReceiptStatus];
+	optional UnilateralDocumentStatus DocumentStatus = 1 [default = UnknownUnilateralDocumentStatus];
+	optional ReceiptStatus ReceiptStatus = 2 [default = UnknownReceiptStatus];
 }
 
 enum UnilateralDocumentStatus {

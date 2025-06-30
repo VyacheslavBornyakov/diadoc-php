@@ -9,29 +9,29 @@ package Diadoc.Api.Proto.Invoicing;
 option java_outer_classname = "AcceptanceCertificate552InfoProtos";
 
 message AcceptanceCertificate552SellerTitleInfo {
-	required Organizations.ExtendedOrganizationInfo Seller = 1; // Исполнитель (продавец услуг) // Исполнитель
-	required Organizations.ExtendedOrganizationInfo Buyer = 2; // Заказчик (покупатель услуг) // Заказчик
+	optional Organizations.ExtendedOrganizationInfo Seller = 1; // Исполнитель (продавец услуг) // Исполнитель
+	optional Organizations.ExtendedOrganizationInfo Buyer = 2; // Заказчик (покупатель услуг) // Заказчик
 	repeated Signers.ExtendedSigner Signers = 3; // Подписант // Документ.Подписант
 	repeated GroundInfo Grounds = 4; // Основание // Основание
-	required string Currency = 5; // Валюта (код) // КодОКВ
+	optional string Currency = 5; // Валюта (код) // КодОКВ
 	optional string CurrencyRate = 6; // Курс валюты // КурсВал
 	repeated AcceptanceCertificate552WorkDescription Works = 7; // описание выполненных работ // ОписРабот
-	required string DocumentDate = 8; // Дата составления документа о передаче товара // ИдентДок.ДатаДокПРУ
+	optional string DocumentDate = 8; // Дата составления документа о передаче товара // ИдентДок.ДатаДокПРУ
 	optional string DocumentNumber = 9; // Номер документа о передаче товара // ИдентДок.НомДокПРУ
 	optional string RevisionDate = 10; // Дата исправления документа // ИспрДокПРУ.ДатаИспрДокПРУ
 	optional string RevisionNumber = 11; // Номер исправления документа // ИспрДокПРУ.НомИспрДокПРУ
-	required string DocumentCreator = 12; // Составитель файла информации продавца // НаимЭконСубСост
+	optional string DocumentCreator = 12; // Составитель файла информации продавца // НаимЭконСубСост
 	optional string DocumentCreatorBase = 13; // Основание, по которому экономический субъект является составителем файла //ОснДоверОргСост
 	optional string OperationType = 14; // Вид операции // ВидОперации
 	optional string OperationTitle = 15; // Заголовок содержания операции // ЗагСодОпер
 	optional string GovernmentContractInfo = 16; // Идентификатор государственного контракта // ИдГосКон
 	optional AdditionalInfoId AdditionalInfoId = 17; // Информационное поле документа // ИнфПолФХЖ1
-	required string DocumentName = 18; // Наименование первичного документа, определенное организацией // НаимДок.НаимДокОпр
-	required AcceptanceCertificate552TransferInfo TransferInfo = 19; // Содержание факта хозяйственной жизни - сведения о передаче результатов работ (о предъявлении оказанных услуг) // СодФХЖ2
+	optional string DocumentName = 18; // Наименование первичного документа, определенное организацией // НаимДок.НаимДокОпр
+	optional AcceptanceCertificate552TransferInfo TransferInfo = 19; // Содержание факта хозяйственной жизни - сведения о передаче результатов работ (о предъявлении оказанных услуг) // СодФХЖ2
 }
 
 message AcceptanceCertificate552TransferInfo {
-	required string OperationInfo = 1; // Содержание операции // СодОпер
+	optional string OperationInfo = 1; // Содержание операции // СодОпер
 	optional string TransferDate = 2; // Дата передачи результатов работ // ДатаПер
 	optional string CreatedThingTransferDate = 3; // Дата передачи вещи, изготовленной по договору подряда // СвПерВещи.ДатаПерВещ
 	optional string CreatedThingInfo = 4; // Сведения о передаче // СвПерВещи.СвПерВещ
@@ -43,7 +43,7 @@ message AcceptanceCertificate552WorkDescription {
 	optional string CompletionDate = 2; // окончание периода выполнения работ // КонРабот
 	optional string TotalWithVatExcluded = 3; // сумма без учета НДС - итого // СтБезНДСИт
 	optional string TotalVat = 4; // сумма НДС - итого // СумНДСИт
-	required string Total = 5; // сумма с учетом НДС - итого // СтУчНДСИт
+	optional string Total = 5; // сумма с учетом НДС - итого // СтУчНДСИт
 	repeated AcceptanceCertificate552WorkItem Items = 6; // сведения о произведенной работе // Работа
 }
 
@@ -65,10 +65,10 @@ message AcceptanceCertificate552WorkItem {
 
 message AcceptanceCertificate552BuyerTitleInfo {
 	repeated Signers.ExtendedSigner Signers = 1; // Подписант // Документ.Подписант
-	required string DocumentCreator = 2; // Составитель файла информации продавца // НаимЭконСубСост
+	optional string DocumentCreator = 2; // Составитель файла информации продавца // НаимЭконСубСост
 	optional string DocumentCreatorBase = 3; // Основание, по которому экономический субъект является составителем файла //ОснДоверОргСост
 	optional string OperationType = 4; // Вид операции // ВидОперации
-	required string OperationContent = 6; // Содержание операции // СодОпер
+	optional string OperationContent = 6; // Содержание операции // СодОпер
 	optional string AcceptanceDate = 7; // Дата приемки результатов работ // ДатаПрием
 	optional string CreatedThingAcceptDate = 8; // Дата получения вещи, изготовленной  по договору подряда // СвПолВещи.ДатаПол
 	optional string CreatedThingInfo = 9; // Сведения о получении // СвПолВещи.СвПол

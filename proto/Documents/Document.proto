@@ -22,9 +22,9 @@ option java_outer_classname = "DocumentProtos";
 
 message Document {
 	optional string IndexKey = 1;
-	required string MessageId = 2;
-	required string EntityId = 3;
-	required sfixed64 CreationTimestampTicks = 4;
+	optional string MessageId = 2;
+	optional string EntityId = 3;
+	optional sfixed64 CreationTimestampTicks = 4;
 	optional string CounteragentBoxId = 5;
 	optional DocumentType DocumentType = 6 [default = UnknownDocumentType];
 	repeated DocumentId InitialDocumentIds = 7;
@@ -82,36 +82,36 @@ message Document {
 	optional string AttachmentVersion = 61;
 	optional ProxySignatureStatus ProxySignatureStatus = 62 [default = UnknownProxySignatureStatus];
 
-	required string TypeNamedId = 63;
-	required string Function = 64;
-	required int32 WorkflowId = 65;
-	required string Title = 66;
+	optional string TypeNamedId = 63;
+	optional string Function = 64;
+	optional int32 WorkflowId = 65;
+	optional string Title = 66;
 	repeated Events.MetadataItem Metadata = 67;
-	required RecipientReceiptMetadata RecipientReceiptMetadata = 68;
-	required ConfirmationMetadata ConfirmationMetadata = 69;
-	required RecipientResponseStatus RecipientResponseStatus = 70 [default = RecipientResponseStatusUnknown];
-	required AmendmentRequestMetadata AmendmentRequestMetadata = 71;
+	optional RecipientReceiptMetadata RecipientReceiptMetadata = 68;
+	optional ConfirmationMetadata ConfirmationMetadata = 69;
+	optional RecipientResponseStatus RecipientResponseStatus = 70 [default = RecipientResponseStatusUnknown];
+	optional AmendmentRequestMetadata AmendmentRequestMetadata = 71;
 	optional Origin Origin = 72;
 	optional string EditingSettingId = 73 [default = ""];
-	required LockMode LockMode = 74 [default = None];
-	required SenderReceiptMetadata SenderReceiptMetadata = 75; 
-	required string Version = 76;
+	optional LockMode LockMode = 74 [default = None];
+	optional SenderReceiptMetadata SenderReceiptMetadata = 75;
+	optional string Version = 76;
 	repeated LastOuterDocflow LastOuterDocflows = 77;
 	optional string ProxyBoxId = 78;
 	optional string ProxyDepartmentId = 79;
-	required DocflowStatusV3 DocflowStatus = 80;
+	optional DocflowStatusV3 DocflowStatus = 80;
 }
 
 message LastOuterDocflow {
-	required string ParentEntityId = 1;
-	required OuterDocflows.OuterDocflowInfo OuterDocflow = 2;
+	optional string ParentEntityId = 1;
+	optional OuterDocflows.OuterDocflowInfo OuterDocflow = 2;
 }
 
 message ResolutionStatus {
 	optional ResolutionStatusType Type = 1 [default = UnknownResolutionStatus];
 	optional ResolutionTarget Target = 2;
-	required string AuthorUserId = 3;
-	required string AuthorFIO = 4;
+	optional string AuthorUserId = 3;
+	optional string AuthorFIO = 4;
 }
 
 enum ResolutionStatusType {
@@ -168,23 +168,23 @@ enum GeneralReceiptStatus {
 }
 
 message RecipientReceiptMetadata {
-	required GeneralReceiptStatus ReceiptStatus = 1 [default = GeneralReceiptStatusUnknown];
+	optional GeneralReceiptStatus ReceiptStatus = 1 [default = GeneralReceiptStatusUnknown];
 	optional ConfirmationMetadata ConfirmationMetadata = 2;
 }
 
 message SenderReceiptMetadata {
-	required GeneralReceiptStatus ReceiptStatus = 1 [default = GeneralReceiptStatusUnknown];
+	optional GeneralReceiptStatus ReceiptStatus = 1 [default = GeneralReceiptStatusUnknown];
 }
 
 message ConfirmationMetadata {
-	required GeneralReceiptStatus ReceiptStatus = 1 [default = GeneralReceiptStatusUnknown];
-	required sfixed64 DateTimeTicks = 2;
+	optional GeneralReceiptStatus ReceiptStatus = 1 [default = GeneralReceiptStatusUnknown];
+	optional sfixed64 DateTimeTicks = 2;
 }
 
 
 message AmendmentRequestMetadata {
-	required int32 AmendmentFlags = 1;
-	required GeneralReceiptStatus ReceiptStatus = 2 [default = GeneralReceiptStatusUnknown];
+	optional int32 AmendmentFlags = 1;
+	optional GeneralReceiptStatus ReceiptStatus = 2 [default = GeneralReceiptStatusUnknown];
 }
 
 enum RecipientResponseStatus {
@@ -198,8 +198,8 @@ enum RecipientResponseStatus {
 }
 
 message Origin {
-	required MessageType MessageType = 1;
-	required string MessageId = 2;
+	optional MessageType MessageType = 1;
+	optional string MessageId = 2;
 }
 
 enum MessageType {

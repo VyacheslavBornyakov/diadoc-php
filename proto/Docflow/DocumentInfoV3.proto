@@ -14,20 +14,20 @@ option java_outer_classname = "DocumentInfoV3Protos";
 
 message DocumentInfoV3
 {
-	required FullVersion FullVersion = 1;
-	required Documents.MessageType MessageType = 2;
-	required int32 WorkflowId = 3;
-	required DocumentParticipants Participants = 4;
-	required DocumentDirection DocumentDirection = 5;
-	required string DepartmentId = 6;
+	optional FullVersion FullVersion = 1;
+	optional Documents.MessageType MessageType = 2;
+	optional int32 WorkflowId = 3;
+	optional DocumentParticipants Participants = 4;
+	optional DocumentDirection DocumentDirection = 5;
+	optional string DepartmentId = 6;
 	optional string CustomDocumentId = 7;
 	repeated Events.MetadataItem Metadata = 8;
 	repeated CustomDataItem CustomData = 9;
-	required DocumentLinks DocumentLinks = 10;
-	required PacketInfo PacketInfo = 11;
-	required bool IsRead = 12;
-	required bool IsDeleted = 13;
-	required bool IsInvitation = 14;
+	optional DocumentLinks DocumentLinks = 10;
+	optional PacketInfo PacketInfo = 11;
+	optional bool IsRead = 12;
+	optional bool IsDeleted = 13;
+	optional bool IsInvitation = 14;
 	optional DocumentLetterInfo LetterInfo = 15;
 	optional DocumentDraftInfo DraftInfo = 16;
 	optional DocumentTemplateInfo TemplateInfo = 17;
@@ -37,15 +37,15 @@ message DocumentInfoV3
 
 message DocumentParticipants
 {
-	required DocumentParticipant Sender = 1;
+	optional DocumentParticipant Sender = 1;
 	optional DocumentParticipant Proxy = 2;
 	optional DocumentParticipant Recipient = 3;
-	required bool IsInternal = 4;
+	optional bool IsInternal = 4;
 }
 
 message DocumentParticipant
 {
-	required string BoxId = 1;
+	optional string BoxId = 1;
 	optional string DepartmentId = 2;
 }
 
@@ -57,28 +57,28 @@ message DocumentLinks
 
 message PacketInfo
 {
-	required LockMode LockMode = 1;
+	optional LockMode LockMode = 1;
 	optional string PacketId = 2;
 	optional Timestamp AddedAt = 3;
 }
 
 message DocumentLetterInfo
 {
-	required bool IsEncrypted = 1;
+	optional bool IsEncrypted = 1;
 	repeated ForwardDocumentEvent ForwardDocumentEvents = 2;
-	required bool IsTest = 3;
+	optional bool IsTest = 3;
 }
 
 message DocumentDraftInfo
 {
-	required bool IsRecycled = 1;
-	required bool IsLocked = 2;
+	optional bool IsRecycled = 1;
+	optional bool IsLocked = 2;
 	repeated string TransformedToLetterIds = 3;
 }
 
 message DocumentTemplateInfo
 {
-	required DocumentParticipants LetterParticipants = 1;
+	optional DocumentParticipants LetterParticipants = 1;
 	repeated string TransformedToLetterIds = 2;
 	repeated TemplateTransformationInfo TemplateTransformationInfos = 3;
 	optional TemplateRefusalInfo TemplateRefusalInfo = 4;
@@ -87,14 +87,14 @@ message DocumentTemplateInfo
 
 message TemplateTransformationInfo
 {
-	required string TransformationId = 1;
+	optional string TransformationId = 1;
 	optional DocumentId TransformedToDocumentId = 2;
 	optional string AuthorUserId = 3;
 }
 
 message TemplateRefusalInfo
 {
-	required string BoxId = 1;
+	optional string BoxId = 1;
 	optional string AuthorUserId = 2;
 	optional string Comment = 3;
 }

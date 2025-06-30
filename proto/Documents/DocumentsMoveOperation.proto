@@ -6,7 +6,7 @@ option java_outer_classname = "DocumentsMoveOperationProtos";
 
 message DocumentsMoveOperation
 {
-	required string BoxId = 1;
+	optional string BoxId = 1;
 	optional string ToDepartmentId = 2;
 	repeated DocumentId DocumentIds = 3;
 }

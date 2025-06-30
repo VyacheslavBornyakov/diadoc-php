@@ -7,6 +7,6 @@ option java_outer_classname = "BlockStatusProtos";
 
 message BlockStatus
 {
-    required ManualBlockStatus ManualBlockStatus = 1;
-    required AutoBlockStatus AutoBlockStatus = 2;
+    optional ManualBlockStatus ManualBlockStatus = 1;
+    optional AutoBlockStatus AutoBlockStatus = 2;
 }

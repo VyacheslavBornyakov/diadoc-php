@@ -25,13 +25,13 @@ enum PowerOfAttorneyValidationStatusNamedId {
 }
 
 message PowerOfAttorneyValidationError {
-	required string Code = 1;
-	required string Text = 2;
+	optional string Code = 1;
+	optional string Text = 2;
 }
 
 message PowerOfAttorneyPrevalidateRequest
 {
-    required ConfidantCertificateToPrevalidate ConfidantCertificate = 1;
+    optional ConfidantCertificateToPrevalidate ConfidantCertificate = 1;
 }
 
 message ConfidantCertificateToPrevalidate {
@@ -40,7 +40,7 @@ message ConfidantCertificateToPrevalidate {
 }
 
 message PowerOfAttorneyPrevalidateResult {
-    required PowerOfAttorneyValidationStatus PrevalidateStatus = 1;
+    optional PowerOfAttorneyValidationStatus PrevalidateStatus = 1;
 }
 
 message ValidationProtocol {
@@ -49,7 +49,7 @@ message ValidationProtocol {
 
 message ValidationCheckResult {
 	optional PowerOfAttorneyValidationCheckStatus Status = 1 [default = UnknownCheckStatus];
-	required string Name = 2;
+	optional string Name = 2;
 	optional PowerOfAttorneyValidationError Error = 3;
 }
 

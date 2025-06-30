@@ -9,14 +9,14 @@ option java_outer_classname = "DocumentWithDocflowV3Protos";
 
 message DocumentWithDocflowV3
 {
-	required DocumentId DocumentId = 1;
-	required LastEvent LastEvent = 2;
-	required DocumentInfoV3 DocumentInfo = 3;
-	required DocflowV3 Docflow = 4;
+	optional DocumentId DocumentId = 1;
+	optional LastEvent LastEvent = 2;
+	optional DocumentInfoV3 DocumentInfo = 3;
+	optional DocflowV3 Docflow = 4;
 }
 
 message LastEvent
 {
-	required string EventId = 1;
-	required Timestamp Timestamp = 2;
+	optional string EventId = 1;
+	optional Timestamp Timestamp = 2;
 }

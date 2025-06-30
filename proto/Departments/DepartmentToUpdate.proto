@@ -15,13 +15,13 @@ message DepartmentToUpdate
 
 message ParentDepartmentPatch
 {
-	required string  ParentDepartmentId=1;
+	optional string  ParentDepartmentId=1;
 }
 
 message DepartmentNamingPatch
 {
-	required string Name=1;
-	required string Abbreviation=2;
+	optional string Name=1;
+	optional string Abbreviation=2;
 }
 
 message DepartmentKppPatch
@@ -36,6 +36,6 @@ message DepartmentAddressPatch
 
 message DepartmentRoutingPatch
 {
-	required bool Kpp = 1;
-	required bool Address = 2;
+	optional bool Kpp = 1;
+	optional bool Address = 2;
 }

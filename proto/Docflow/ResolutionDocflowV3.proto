@@ -12,11 +12,11 @@ option java_outer_classname = "ResolutionDocflowV3Protos";
 
 message ResolutionDocflowV3
 {
-	required bool IsFinished = 1;
+	optional bool IsFinished = 1;
 
-	required string ParentEntityId = 2;
+	optional string ParentEntityId = 2;
 
-	required ResolutionStatus ResolutionStatus = 3 [default = UnknownStatus];
+	optional ResolutionStatus ResolutionStatus = 3 [default = UnknownStatus];
 
 	optional string ResolutionEntityId = 4;
 }
@@ -47,32 +47,32 @@ message ResolutionEntitiesV3
 
 message ResolutionRequestV3
 {
-	required Entity Entity = 1;
-	required ResolutionTarget Target = 2;
+	optional Entity Entity = 1;
+	optional ResolutionTarget Target = 2;
 	optional string AuthorUserId = 3;
-	required ResolutionRequestType RequestType = 4 [default = UnknownResolutionRequestType];
+	optional ResolutionRequestType RequestType = 4 [default = UnknownResolutionRequestType];
 	optional string ResolvedWith = 5;
 	repeated ResolutionAction Actions = 6;
 }
 
 message ResolutionV3
 {
-	required Entity Entity = 1;
+	optional Entity Entity = 1;
 	optional string ResolutionRequestId = 2;
 	optional string AuthorUserId = 3;
-	required ResolutionType ResolutionType = 4 [default = UnknownResolutionType];
+	optional ResolutionType ResolutionType = 4 [default = UnknownResolutionType];
 }
 
 message ApprovementSignatureV3
 {
-	required SignatureV3 Signature = 1;
+	optional SignatureV3 Signature = 1;
 	optional string ResolutionRequestId = 2;
 	optional string AuthorUserId = 3;
 }
 
 message SignatureDenialV3
 {
-	required Entity Entity = 1;
-	required string ResolutionRequestId = 2;
+	optional Entity Entity = 1;
+	optional string ResolutionRequestId = 2;
 	optional string AuthorUserId = 3;
 }

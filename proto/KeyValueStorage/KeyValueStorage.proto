@@ -7,8 +7,8 @@ option java_outer_classname = "KeyValueStorageProtos";
 
 // Пара (ключ, значение) для хранения в хранилище
 message KeyValueStorageEntry {
-	required string Key = 1;
-	required string Value = 2;
+	optional string Key = 1;
+	optional string Value = 2;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

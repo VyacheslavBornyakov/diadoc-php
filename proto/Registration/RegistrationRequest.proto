@@ -8,7 +8,7 @@ message RegistrationRequest {
 }
 
 message RegistrationResponse {
-    required RegistrationStatus RegistrationStatus = 1;
+    optional RegistrationStatus RegistrationStatus = 1;
     optional string BoxId = 2;
     optional bytes DataToSign = 3;
 }
@@ -29,6 +29,6 @@ enum RegistrationStatus {
 message RegistrationConfirmRequest {
     optional bytes CertificateContent = 1;
     optional string Thumbprint = 2;
-    required bytes DataToSign  = 3;
-    required bytes Signature = 4;
+    optional bytes DataToSign  = 3;
+    optional bytes Signature = 4;
 }

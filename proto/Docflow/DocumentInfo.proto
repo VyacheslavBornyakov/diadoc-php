@@ -25,7 +25,7 @@ message DocumentInfo
 	optional UniversalTransferDocumentInfo UniversalTransferDocumentInfo = 15; // for UniversalTransferDocument, UniversalTransferDocumentRevision
 	optional UniversalCorrectionDocumentInfo UniversalCorrectionDocumentInfo = 16; // for UniversalCorrectionDocument, UniversalCorrectionDocumentRevision
 	optional string AttachmentVersion = 17;
-	required string Version = 18;
+	optional string Version = 18;
 }
 
 message DocumentDateAndNumber
@@ -78,8 +78,8 @@ message ContractDocumentInfo
 message SupplementaryAgreementDocumentInfo
 {
 	optional string ContractType = 1;
-	required DocumentDateAndNumber ContractDocumentDateAndNumber = 2;
-	required DocumentDateAndNumber DocumentDateAndNumber = 3;
+	optional DocumentDateAndNumber ContractDocumentDateAndNumber = 2;
+	optional DocumentDateAndNumber DocumentDateAndNumber = 3;
 	optional string Total = 4;
 }
 
@@ -89,7 +89,7 @@ message UniversalTransferDocumentInfo
 	optional string Vat = 2;
 	optional int32 CurrencyCode = 3;
 	optional string Grounds = 4;
-	required Invoicing.FunctionType Function = 5;
+	optional Invoicing.FunctionType Function = 5;
 	optional DocumentDateAndNumber OriginalDocumentDateAndNumber = 6; // for UniversalTransferDocumentRevision
 }
 
@@ -101,7 +101,7 @@ message UniversalCorrectionDocumentInfo
 	optional string VatDec = 4;
 	optional int32 CurrencyCode = 5;
 	optional string Grounds = 6;
-	required Invoicing.FunctionType Function = 7;
+	optional Invoicing.FunctionType Function = 7;
 	optional DocumentDateAndNumber OriginalDocumentDateAndNumber = 8;
 	optional DocumentDateAndNumber OriginalDocumentRevisionDateAndNumber = 9;
 	optional DocumentDateAndNumber OriginalDocumentCorrectionDateAndNumber = 10; // for UniversalCorrectionDocumentRevision

@@ -4,6 +4,6 @@ option java_outer_classname = "RoamingNotificationProtos";
 
 message RoamingNotification
 {
-	required bool Success = 1;
+	optional bool Success = 1;
 	optional string Description = 2;
 }

@@ -5,7 +5,7 @@ package Diadoc.Api.Proto;
 option java_outer_classname = "RoamingSendingStatusProtos";
 
 message RoamingSendingStatus {
-  required Severity Severity = 1;
+  optional Severity Severity = 1;
   optional RoamingSendingStatusNamedId StatusNamedId = 2 [default = UnknownStatus];
   optional string StatusText = 3;
   repeated RoamingSendingError Errors = 4;
@@ -18,6 +18,6 @@ enum RoamingSendingStatusNamedId {
 }
 
 message RoamingSendingError {
-  required string Code = 1;
-  required string Text = 2;
+  optional string Code = 1;
+  optional string Text = 2;
 }

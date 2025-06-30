@@ -6,6 +6,6 @@ option java_outer_classname = "OrganizationFeaturesProtos";
 
 message OrganizationFeatures
 {
-    required BlockStatus BlockStatus = 1;
+    optional BlockStatus BlockStatus = 1;
     repeated string Features = 2;
 }

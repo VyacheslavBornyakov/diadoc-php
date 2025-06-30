@@ -15,8 +15,8 @@ option java_outer_classname = "ForwardingApiProtos";
 
 message ForwardDocumentRequest
 {
-	required string ToBoxId = 1;
-	required DocumentId DocumentId = 2;
+	optional string ToBoxId = 1;
+	optional DocumentId DocumentId = 2;
 }
 
 message ForwardDocumentResponse
@@ -38,7 +38,7 @@ message GetForwardedDocumentsResponse
 
 message GetForwardedDocumentEventsRequest
 {
-	required TimeBasedFilter Filter = 1;
+	optional TimeBasedFilter Filter = 1;
 	optional bytes AfterIndexKey = 2;
 	optional bool PopulateForwardedDocuments = 3 [default = false];
 	optional bool InjectEntityContent = 4 [default = false];
@@ -48,7 +48,7 @@ message GetForwardedDocumentEventsResponse
 {
 	optional int32 TotalCount = 1;
 	repeated ForwardedDocumentEvent Events = 2;
-	required TotalCountType TotalCountType = 3;
+	optional TotalCountType TotalCountType = 3;
 }
 
 message ForwardedDocumentEvent

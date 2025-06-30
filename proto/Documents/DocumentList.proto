@@ -5,7 +5,7 @@ package Diadoc.Api.Proto.Documents;
 option java_outer_classname = "DocumentListProtos";
 
 message DocumentList {
-	required int32 TotalCount = 1;
+	optional int32 TotalCount = 1;
 	repeated Document Documents = 2;
 	optional bool HasMoreResults = 3;
 }

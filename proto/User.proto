@@ -13,14 +13,14 @@ message User {
 }
 
 message UserV2 {
-	required string UserId = 1;
+	optional string UserId = 1;
 	optional string Login = 2;
 	optional FullName FullName = 3;
-	required bool IsRegistered = 4;
+	optional bool IsRegistered = 4;
 }
 
 message FullName {
-	required string LastName = 1;
-	required string FirstName = 2;
+	optional string LastName = 1;
+	optional string FirstName = 2;
 	optional string MiddleName = 3;
 }
