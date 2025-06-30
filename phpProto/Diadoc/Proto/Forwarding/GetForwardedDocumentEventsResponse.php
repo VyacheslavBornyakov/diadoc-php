@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: Forwarding/ForwardingApi.proto
 
-namespace Diadoc\Api\Proto\Forwarding;
+namespace Diadoc\Proto\Forwarding;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

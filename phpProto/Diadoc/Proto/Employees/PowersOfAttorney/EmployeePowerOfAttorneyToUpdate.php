@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: Employees/PowersOfAttorney/EmployeePowerOfAttorney.proto
 
-namespace Diadoc\Api\Proto\Employees\PowersOfAttorney;
+namespace Diadoc\Proto\Employees\PowersOfAttorney;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

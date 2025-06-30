@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: CounteragentGroups/CounteragentGroupToUpdate.proto
 
-namespace Diadoc\Api\Proto\CounteragentGroups;
+namespace Diadoc\Proto\CounteragentGroups;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

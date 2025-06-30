@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: OuterDocflows/OuterDocflow.proto
 
-namespace Diadoc\Api\Proto\OuterDocflows;
+namespace Diadoc\Proto\OuterDocflows;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: Certificates/CertificateList.proto
 
-namespace Diadoc\Api\Proto\Certificates;
+namespace Diadoc\Proto\Certificates;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

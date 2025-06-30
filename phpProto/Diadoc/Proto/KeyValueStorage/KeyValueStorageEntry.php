@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: KeyValueStorage/KeyValueStorage.proto
 
-namespace Diadoc\Api\Proto\KeyValueStorage;
+namespace Diadoc\Proto\KeyValueStorage;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

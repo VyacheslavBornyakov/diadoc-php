@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: Events/RevocationRequestInfo.proto
 
-namespace Diadoc\Api\Proto\Events;
+namespace Diadoc\Proto\Events;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

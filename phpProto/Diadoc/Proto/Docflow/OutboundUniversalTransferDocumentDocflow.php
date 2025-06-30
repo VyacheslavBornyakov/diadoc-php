@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: Docflow/UniversalTransferDocumentDocflow.proto
 
-namespace Diadoc\Api\Proto\Docflow;
+namespace Diadoc\Proto\Docflow;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: Documents/DocumentsMoveOperation.proto
 
-namespace Diadoc\Api\Proto\Documents;
+namespace Diadoc\Proto\Documents;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

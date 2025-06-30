@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: Workflows/DocumentWorkflowSettings.proto
 
-namespace Diadoc\Api\Proto\Workflows;
+namespace Diadoc\Proto\Workflows;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: Invoicing/SignatureRejectionInfo.proto
 
-namespace Diadoc\Api\Proto\Invoicing;
+namespace Diadoc\Proto\Invoicing;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

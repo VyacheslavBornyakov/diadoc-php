@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: Employees/Subscriptions/Subscription.proto
 
-namespace Diadoc\Api\Proto\Employees\Subscriptions;
+namespace Diadoc\Proto\Employees\Subscriptions;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;

@@ -3,7 +3,7 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: Organizations/BlockStatus.proto
 
-namespace Diadoc\Api\Proto\Organizations;
+namespace Diadoc\Proto\Organizations;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;
